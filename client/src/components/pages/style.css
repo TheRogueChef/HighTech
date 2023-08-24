@@ -1,12 +1,33 @@
 HTML {
     text-align: center;
+    background-color: lightgreen;
     background-size: cover;
 }
 
 main {
     width: 100%;
 }
+ /*dash*/
+ .dashShell {
+    display: flex;
+ }
 
+ .dashLogo {
+    width: 20%;
+ }
+
+ .leaf {
+    width: 22rem;
+    height: 22rem;
+    margin-left: 6rem;
+    margin-top: 5rem;
+ }
+
+ .dashMenu {
+    width: 75%;
+    display: flex;
+    justify-content: space-evenly;
+ }
 
 .scroll-to-top {
     position: fixed;
@@ -31,7 +52,7 @@ main {
 
 
 @media (max-width: 768px) {
-    .dashRight {
+    .dashMenu {
         display: none;
     }
 }

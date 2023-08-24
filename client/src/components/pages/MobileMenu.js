@@ -24,28 +24,28 @@ const MobileMenu = () => {
             <br />
             {menuOpen && (
                 <div className="menu-items">
-                    <Link to="about" smooth={true} duration={500}>
-                        About Me
+                    <Link to="library" smooth={true} duration={500}>
+                        Library
                     </Link>
                     <br /><br />
-                    <Link to="projects" smooth={true} duration={500}>
-                        Projects
+                    <Link to="shops" smooth={true} duration={500}>
+                        Shops
                     </Link>
                     <br /><br />
-                    <Link to="techSkills" smooth={true} duration={500}>
-                        Tech Skills
+                    <Link to="reviews" smooth={true} duration={500}>
+                        Reviews
                     </Link>
                     <br /><br />
-                    <Link to="education" smooth={true} duration={500}>
-                        Education
+                    <Link to="events" smooth={true} duration={500}>
+                        Events
                     </Link>
                     <br /><br />
-                    <Link to="experience" smooth={true} duration={500}>
-                        Experience
+                    <Link to="docs" smooth={true} duration={500}>
+                        Docs
                     </Link>
                     <br /><br />
-                    <Link to="contact" smooth={true} duration={500}>
-                        Contact
+                    <Link to="extra" smooth={true} duration={500}>
+                        Extra
                     </Link>
                 </div>
             )}
