@@ -3,7 +3,7 @@ import { Link } from 'react-scroll';
 import '../pages/style.css';
 import MobileMenu from './MobileMenu';
 import { Image } from 'react-bootstrap';
-import DigiLeaf from '../images/DigiLeaf.jpeg';
+import DigiLeaf from '../images/JustLeaf.png';
 
 
 

@@ -7,27 +7,110 @@ HTML {
 main {
     width: 100%;
 }
- /*dash*/
- .dashShell {
+
+/*Main*/
+.Main {
     display: flex;
- }
+    align-items: center;
+    margin-left: 5%;
+    margin-top: 18%;
+    font-family: BestAccurate;
 
- .dashLogo {
+
+}
+
+.mainLeft {
+    transform: translateX(-100%) scale(0.2) rotate(-10deg);
+    opacity: 0;
+    animation: slideIn 1s forwards, fadeIn 2s forwards;
+    font-size: 6rem;
+
+}
+
+.mainLeft2 {
+    transform: translateX(-100%) scale(0.2) rotate(-10deg);
+    opacity: 0;
+    animation: slideIn 2s forwards, fadeIn 4s forwards;
+    font-size: 6rem;
+    color: darkgreen;
+    margin-left: 2rem;
+}
+
+.mainRight {
+    transform: translateX(-100%) scale(0.2) rotate(-10deg);
+    opacity: 0;
+    animation: slideIn 4s forwards, fadeIn 6s forwards;
+}
+
+.mainRight2 {
+    transform: translateX(-100%) scale(0.2) rotate(-10deg);
+    opacity: 0;
+    animation: slideIn 10s forwards, fadeIn 10s forwards;
+    font-size: 6rem;
+    color: darkgreen;
+    margin-left: 30rem;
+    text-decoration: none;
+    border: .25rem solid ghostwhite;
+    border-radius: 5%;
+    padding: 1%;
+    background-color: rgba(0, 0, 0, .3);
+}
+
+
+
+@keyframes slideIn {
+    to {
+        transform: translateX(0) scale(1);
+    }
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+.mainLeft h1,
+.mainLeft h3,
+.mainLeft2 h1,
+.mainLeft2 h3,
+.mainRight h1,
+.mainRight h3,
+.mainRight2 h1,
+.mainRight2 h3 {
+    font-size: 2rem;
+    animation: fontSizeIn 2s forwards;
+}
+
+
+@keyframes fontSizeIn {
+    to {
+        font-size: 3rem;
+    }
+}
+
+
+
+/*dash*/
+.dashShell {
+    display: flex;
+}
+
+.dashLogo {
     width: 20%;
- }
+}
 
- .leaf {
-    width: 22rem;
-    height: 22rem;
-    margin-left: 6rem;
-    margin-top: 5rem;
- }
+.leaf {
+    width: 20rem;
+    height: 18rem;
+    margin-left: 4rem;
+}
 
- .dashMenu {
+.dashMenu {
     width: 75%;
     display: flex;
     justify-content: space-evenly;
- }
+}
 
 .scroll-to-top {
     position: fixed;
