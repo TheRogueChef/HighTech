@@ -15,8 +15,6 @@ main {
     margin-left: 5%;
     margin-top: 18%;
     font-family: BestAccurate;
-
-
 }
 
 .mainLeft {
@@ -24,7 +22,6 @@ main {
     opacity: 0;
     animation: slideIn 1s forwards, fadeIn 2s forwards;
     font-size: 6rem;
-
 }
 
 .mainLeft2 {
@@ -89,6 +86,58 @@ main {
     }
 }
 
+/*age verify*/
+.ageShell {
+    font-family: BestAccurate;
+    color: darkgreen;
+    background-image: url(../images/DarkWeed.jpg);
+    background-size: cover;
+    height: 100vh;
+    width: auto;
+    margin-top: -1.7%;
+
+}
+
+.ageTitle {
+    font-size: 3rem;
+    color: ghostwhite;
+    padding-top: 2%;
+}
+
+.ageBox {
+    border: solid .25rem ghostwhite;
+    border-radius: 2%;
+    width: 30%;
+    margin: 0 auto;
+    height: 25rem;
+    background-size: cover;
+    align-content: center;
+    padding: 2%;
+    background-color: lightgreen;
+}
+
+.ageLeaf {
+    width: 7rem;
+    height: 6rem;
+
+}
+
+.ageButtonBox {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.ageBtn {
+    width: 6rem;
+    height: auto;
+    font-size: 2rem;
+    padding: 1%;
+    border: solid .25rem ghostwhite;
+    background-color: rgba(0, 0, 0, .3);
+    border-radius: 2%;
+    font-family: BestAccurate;
+
+}
 
 
 /*dash*/

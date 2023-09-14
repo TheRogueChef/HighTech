@@ -18,7 +18,7 @@ const Main = (props) => {
             <Image className='leaf' src={DigiLeaf} alt='...' />
             </div>
             <div >
-            <RouterLink className='mainRight2' to='/logReg'>enter</RouterLink>
+            <RouterLink className='mainRight2' to='/Age'>enter</RouterLink>
             </div>
         </div>
     );
