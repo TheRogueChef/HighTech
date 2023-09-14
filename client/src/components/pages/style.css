@@ -24,13 +24,15 @@ main {
     font-size: 6rem;
 }
 
+
+
 .mainLeft2 {
     transform: translateX(-100%) scale(0.2) rotate(-10deg);
     opacity: 0;
     animation: slideIn 2s forwards, fadeIn 4s forwards;
     font-size: 6rem;
     color: darkgreen;
-    margin-left: 2rem;
+    
 }
 
 .mainRight {
@@ -49,10 +51,15 @@ main {
     text-decoration: none;
     border: .25rem solid ghostwhite;
     border-radius: 5%;
-    padding: 1%;
+    padding: 1.5%;
     background-color: rgba(0, 0, 0, .3);
 }
 
+.leaf {
+    width: 20rem;
+    height: 18rem;
+    margin-left: 4rem;
+}
 
 
 @keyframes slideIn {
@@ -104,16 +111,24 @@ main {
     padding-top: 2%;
 }
 
+.ageTitle2 {
+    display: flex;
+   justify-content: center;
+   margin-top: -4.5%;
+   font-size: 1.25rem;
+}
+
 .ageBox {
     border: solid .25rem ghostwhite;
     border-radius: 2%;
     width: 30%;
     margin: 0 auto;
-    height: 25rem;
+    height: 28rem;
     background-size: cover;
     align-content: center;
     padding: 2%;
     background-color: lightgreen;
+    margin-top: 5%;
 }
 
 .ageLeaf {
@@ -142,24 +157,106 @@ main {
 
 /*dash*/
 .dashShell {
+    text-align: center;
+    font-family: BestAccurate;
+    }
+
+.navBox {
     display: flex;
 }
+
+.dashBox {
+    display: flex;
+    margin: 3%;
+}
+
 
 .dashLogo {
     width: 20%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    padding-left: 5%;
+    padding-top: 5%;
 }
 
-.leaf {
-    width: 20rem;
-    height: 18rem;
+.dLogoText {
+    color: darkgreen;
+    font-size: 3.5rem;
+    margin-top: 25%;
+    margin-left: 20%;
+    margin-bottom: -75%;
+}
+
+.dashBody {
+    text-align: center;
+    margin-left: 5%;
+    margin-right: 5%;
+    text-shadow: .01rem .01rem black;
+    color: darkgreen;
+    border: .25rem solid ghostwhite;
+    border-radius: 2%;
+    background-color: rgba(0, 0, 0, .2);
+    padding: 2%;
+}
+
+.dashLeaf {
+    width: 14rem;
+    height: 13rem;
     margin-left: 4rem;
 }
 
-.dashMenu {
-    width: 75%;
-    display: flex;
-    justify-content: space-evenly;
+.potLeaf {
+    width: 8rem;
+    height: 8rem;
 }
+
+.dash420 {
+    width: 20rem;
+    height: 40rem;
+    border: .25rem solid ghostwhite;
+    border-radius: 2%;
+}
+
+.dashMenu {
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: .5rem solid ghostwhite;
+    align-items: flex-end;
+    padding-bottom: 1%;
+    margin-left: 5%;
+    font-size: 2rem;
+}
+
+.dashItem {
+    animation: bounceIn 1s ease-in-out;
+    text-decoration: none;
+    color: darkgreen;
+}
+
+
+@keyframes bounceIn {
+    0% {
+      transform: translateY(50px); /* Start off-screen */
+      opacity: 0;
+    }
+    60% {
+      transform: translateY(-10px); /* Bounce up slightly */
+      opacity: 0.5;/* Become fully visible */
+    }
+    80% {
+      transform: translateY(5px); /* Slight bounce down */
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(0);
+   
+    }
+  }
+
+
 
 .scroll-to-top {
     position: fixed;

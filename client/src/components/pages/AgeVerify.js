@@ -13,18 +13,22 @@ function AgeVerification() {
     if (oldEnough) {
       navigate('/dash');
     } else {
-      alert('You are under 21. Access denied!');
+      alert('You are under 21. No soup for you!');
     }
   };
 
   return (
     <div className='ageShell'>
-      
-      <h1 className='ageTitle'>Age Verification</h1>
+
+      <h1 className='ageTitle'></h1>
       <div className='ageBox'>
         <form onSubmit={(e) => handleVerification(e, isOldEnough)}>
-        <Image className='ageLeaf' src={DigiLeaf} alt='...' />
-        <h1>Welcome!</h1>
+          <Image className='ageLeaf' src={DigiLeaf} alt='...' />
+          <div className='ageTitle2'>
+            <p style={{ color: 'black'}}>High </p>
+            <p>Tech</p>
+          </div>
+          <h1>Welcome!</h1>
           <h2>Are you of legal smoking age?</h2>
           <div className='ageButtonBox'>
             <button className='ageBtn' onClick={() => setIsOldEnough(true)}>Yes</button>
@@ -32,7 +36,7 @@ function AgeVerification() {
           </div>
         </form>
         <br />
-        <h4 style={{ textShadow: '.05rem .05rem ghostwhite'}}>
+        <h4 style={{ textShadow: '.05rem .05rem ghostwhite' }}>
           By entering this website, you certify that you are of legal smoking age in the state in which you reside.
         </h4>
       </div>
