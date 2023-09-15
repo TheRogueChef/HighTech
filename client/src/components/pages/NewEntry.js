@@ -41,6 +41,7 @@ const EntryForm = (props) => {
                 <div className=''>
                     <button className='' >Post</button>
                     <Link className='' to={'/dash'}>Home</Link>
+                    <Link className='' to={'/library'}>Back</Link>
                 </div>
                 <br /><br />
                 <div className= ''>

@@ -7,6 +7,7 @@ import Dash from './components/pages/Dash';
 import Age from './components/pages/AgeVerify';
 import Library from './components/pages/Library';
 import NewEntry from './components/pages/NewEntry';
+import EntryDisplayOne from './components/pages/EntryDisplayOne';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 
@@ -22,6 +23,7 @@ function App() {
         <Route path="/age" element={<Age />} />
         <Route path="/library" element={<Library />} />
         <Route path="/newEntry" element={<NewEntry />} />
+        <Route path="/oneEntry/:id" element={<EntryDisplayOne />} />
       </Routes>
     </BrowserRouter>
   );

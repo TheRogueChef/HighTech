@@ -24,15 +24,13 @@ main {
     font-size: 6rem;
 }
 
-
-
 .mainLeft2 {
     transform: translateX(-100%) scale(0.2) rotate(-10deg);
     opacity: 0;
     animation: slideIn 2s forwards, fadeIn 4s forwards;
     font-size: 6rem;
     color: darkgreen;
-    
+
 }
 
 .mainRight {
@@ -102,7 +100,6 @@ main {
     height: 100vh;
     width: auto;
     margin-top: -1.7%;
-
 }
 
 .ageTitle {
@@ -113,9 +110,9 @@ main {
 
 .ageTitle2 {
     display: flex;
-   justify-content: center;
-   margin-top: -4.5%;
-   font-size: 1.25rem;
+    justify-content: center;
+    margin-top: -4.5%;
+    font-size: 1.25rem;
 }
 
 .ageBox {
@@ -151,7 +148,6 @@ main {
     background-color: rgba(0, 0, 0, .3);
     border-radius: 2%;
     font-family: BestAccurate;
-
 }
 
 
@@ -159,7 +155,7 @@ main {
 .dashShell {
     text-align: center;
     font-family: BestAccurate;
-    }
+}
 
 .navBox {
     display: flex;
@@ -169,7 +165,6 @@ main {
     display: flex;
     margin: 3%;
 }
-
 
 .dashLogo {
     width: 20%;
@@ -212,7 +207,7 @@ main {
 }
 
 .dash420 {
-    width: 20rem;
+    width: 30%;
     height: 40rem;
     border: .25rem solid ghostwhite;
     border-radius: 2%;
@@ -236,27 +231,48 @@ main {
     color: darkgreen;
 }
 
+.btn {
+    width: auto;
+    height: auto;
+    color: ghostwhite;
+    border: solid .25rem ghostwhite;
+    border-radius: 2%;
+    background-color: rgba(0, 0, 0, .7);
+    padding: .5%;
+    text-decoration: none;
+}
+
+.btnBar{
+    display: flex;
+    justify-content: space-evenly;
+}
+
 
 @keyframes bounceIn {
     0% {
-      transform: translateY(50px); /* Start off-screen */
-      opacity: 0;
+        transform: translateY(50px);
+        /* Start off-screen */
+        opacity: 0;
     }
+
     60% {
-      transform: translateY(-10px); /* Bounce up slightly */
-      opacity: 0.5;/* Become fully visible */
+        transform: translateY(-10px);
+        /* Bounce up slightly */
+        opacity: 0.5;
+        /* Become fully visible */
     }
+
     80% {
-      transform: translateY(5px); /* Slight bounce down */
-      opacity: 1;
+        transform: translateY(5px);
+        /* Slight bounce down */
+        opacity: 1;
     }
+
     100% {
-      transform: translateY(0);
-   
+        transform: translateY(0);
+
     }
-  }
-
-
+}
 
 .scroll-to-top {
     position: fixed;
@@ -279,31 +295,25 @@ main {
     opacity: 1;
 }
 
-
 @media (max-width: 768px) {
     .dashMenu {
         display: none;
     }
 }
-
 .menu-items {
-    color: white;
+    color: darkgreen;
 }
-
-
 .mobile-menu {
     margin-left: 5%;
     position: relative;
     display: none;
 }
-
 .menu-toggle {
     display: flex;
     align-items: center;
     cursor: pointer;
-    color: white;
+    color: darkgreen;
 }
-
 .menu-icon {
     display: inline-block;
     width: 30px;
@@ -314,64 +324,226 @@ main {
     transform: rotate(0deg);
     transition: 0.5s ease-in-out;
 }
-
 .menu-icon span {
     display: block;
     position: absolute;
     height: 3px;
     width: 100%;
-    background: silver;
+    background: black;
     border-radius: 9px;
     opacity: 1;
     left: 0;
     transform: rotate(0deg);
     transition: 0.25s ease-in-out;
 }
-
-
 .menu-icon span:nth-child(1) {
     top: 0px;
 }
-
 .menu-icon span:nth-child(2),
 .menu-icon span:nth-child(3) {
     top: 10px;
 }
-
 .menu-icon span:nth-child(4) {
     top: 20px;
 }
-
 .menu-icon.open span:nth-child(1) {
     top: 10px;
     transform: rotate(135deg);
 }
-
 .menu-icon.open span:nth-child(2) {
     top: 10px;
     opacity: 0;
     left: -60px;
 }
-
 .menu-icon.open span:nth-child(3) {
     top: 10px;
     transform: rotate(-135deg);
 }
-
 .menu-icon.open span:nth-child(4) {
     top: 10px;
     transform: rotate(-135deg);
 }
-
 @media (max-width: 768px) {
     .mobile-menu {
         display: block;
     }
 }
-
 .arrow-icon {
     width: 20px;
     height: 20px;
     background-color: #007bff;
     clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+/*library*/
+.libDad {
+    font-family: BestAccurate;
+    color: ghostwhite;
+    background-image: url(../images/weed.jpg);
+    background-size: cover;
+    height: 100%;
+    width: auto;
+}
+
+.libName {
+    font-size: 3.5rem;
+}
+
+.libOuterShell {
+    display: flex;
+}
+
+.libPic {
+    width: auto;
+    height: 35rem;
+    transform: rotate(270deg);
+    margin-top: 10%;
+    border: solid .25rem ghostwhite;
+    border-radius: 2%;
+}
+
+.libShell {
+    display: inline-block;
+    justify-content: center;
+}
+
+.libOuterBox {
+    border: .25rem solid ghostwhite;
+    width: 60rem;
+    height: auto;
+    background-color: rgba(0, 0, 0, .3);
+    border-radius: 2%;
+    margin-bottom: 4%;
+}
+
+.libBox {
+    display: flex;
+}
+
+.libEntry,
+.graph,
+.libTaste {
+    border: .25rem solid ghostwhite;
+    width: 20rem;
+    height: 15rem;
+    background-color: rgba(0, 0, 0, .3);
+    border-radius: 2%;
+    margin: 1%;
+    padding: 1%;
+}
+
+.graph {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    font-size: 1.4rem;
+}
+
+.GTitle {
+    margin-top: 0;
+    font-size: 1.5rem;
+}
+
+.bar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    margin-left: 2%;
+}
+
+.bar-fill {
+    background-color: rgb(103, 204, 103);
+    width: 50%;
+    min-height: 30px;
+    border-radius: 1%;
+    flex-grow: -.5;
+    transition: width 1s ease-in-out;
+    animation: slideIn 1s ease-in-out forwards;
+    opacity: 0;
+}
+
+.percentage-label {
+    position: relative;
+    margin-top: 10%;
+    margin-left: 5%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 1rem;
+}
+
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0%);
+        opacity: 1;
+    }
+}
+
+.bar,
+.bar-fill {
+    animation-delay: 0.5s;
+}
+
+.libTaste {
+    font-size: 1.5rem;
+}
+
+/*view one*/
+.viewDad {
+    font-family: BestAccurate;
+    color: ghostwhite;
+    background-image: url(../images/weed.jpg);
+    background-size: cover;
+    height: 100vh;
+    padding-top: 1%;
+}
+
+.viewShell {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.viewName {
+    font-size: 3.5rem;
+    border: solid .25rem ghostwhite;
+    border-radius: 2%;
+    background-color: rgba(0, 0, 0, .5);
+    width: 10rem;
+}
+
+.viewOuterBox {
+    border: .25rem solid ghostwhite;
+    width: 80%;
+    height: auto;
+    background-color: rgba(0, 0, 0, .7);
+    border-radius: 2%;
+
+}
+
+.viewBox {
+    display: flex;
+    justify-content: space-between;
+}
+
+.viewEntry,
+.viewTaste {
+    border: .25rem solid ghostwhite;
+    width: 20rem;
+    height: 15rem;
+    background-color: rgba(0, 0, 0, .5);
+    border-radius: 2%;
+    margin: 1%;
+    padding: 1%;
+}
+
+.viewTaste {
+    font-size: 1.5rem;
 }

@@ -1,12 +1,14 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Image } from 'react-bootstrap';
+import Weed from '../images/weed.jpg';
 import '../pages/style.css';
 
 const DisplayAllEntries = (props) => {
     const [entries, setEntries] = useState([]);
     const initialLikes = {};
-   
+
 
     const handleLike = (entryId, entryIndex) => {
 
@@ -46,61 +48,74 @@ const DisplayAllEntries = (props) => {
     }, []);
 
     return (
-        <div className=''>
+        <div className='libDad'>
             <br />
-            <p className= ''>The Library</p>
-            <br />
-            <div className= ''>
-                <Link className='' target='blank' to={'/dash'}>Home</Link>
+            <p className='libName'>The Library</p>
+            <div className=''>
+                <Link className='' to={'/dash'}>Home</Link>
                 <Link className='' to={`/newEntry`}>New Entry</Link>
             </div>
-            <br /><br />
-            {entries.map((entry, index) => {
-                
-
-          
-                return (
-                    <div className='' key={index}>
-                        <h1>{entry.entryName}</h1>
-                        <h4 >
-                            {entry.entryDistributor}
-                        </h4>
-                        <h4 >
-                            {entry.entryStrain}
-                        </h4>
-                        <h4 >
-                            {entry.entryShape}
-                        </h4>
-                        <h4 >
-                            {entry.entryTotalTHC}
-                        </h4>
-                        <h4 >
-                            {entry.entryTotalCBD}
-                        </h4>
-                        <h4 >
-                            {entry.entryTotalTerpines}
-                        </h4>
-                        <h4 >
-                            {entry.entryTaste}
-                        </h4>
-                        <h2 style={{ fontStyle: 'italic' }}>"{entry.entryDescription}"</h2>
-                        <br /><br />
-                        <Link className='' to={`/oneEntry/${entry._id}`}>
-                            Deets
-                        </Link>
-                        <br /><br />
-                        <div className=''>
-                            <div className=''>
-                            Likes: {entry.likes}
+            <div className='libOuterShell'>
+                    <Image className='libPic' src={Weed} alt='...' />
+                <div className='libShell'>
+                    {entries.map((entry, index) => {
+                        return (
+                            <div className='libOuterBox' key={index}>
+                                <h1>{entry.name}</h1>
+                                <h2 style={{ fontStyle: 'italic' }}>
+                                    "{entry.description}"</h2>
+                                <div className='libBox'>
+                                    <div className='libEntry'>
+                                        <h3 >Grown or distributed by:
+                                            <br />
+                                            {entry.distributor}
+                                        </h3>
+                                        <h4 >Strain:
+                                            <br />
+                                            {entry.strain}
+                                        </h4>
+                                        <h4 >What form (flower, dab, live resin, edible, etc...):
+                                            <br />
+                                            {entry.shape}
+                                        </h4>
+                                    </div>
+                                    <div className='graph'>
+                                        <p className='GTitle'>Weed Stats</p>
+                                        <div className=''>
+                                            <div className='bar'>
+                                                <span>THC%</span>
+                                                <div className='bar-fill' style={{ marginLeft: '5%', width: `${entry.totalTHC}%` }}></div>
+                                                <span className='percentage-label'>{entry.totalTHC}%</span>
+                                            </div>
+                                            <div className='bar'>
+                                                <span>CBD%</span>
+                                                <div className='bar-fill' style={{ marginLeft: '5%', marginBottom: '5%', width: `${entry.totalCBD}%` }}></div>
+                                                <span className='percentage-label'>{entry.totalCBD}%</span>
+                                            </div>
+                                            <div className='bar'>
+                                                <span>Terpenes%</span>
+                                                <div className='bar-fill' style={{marginLeft: '5%', width: `${entry.totalTerpenes}%` }}></div>
+                                                <span className='percentage-label'>{entry.totalTerpines}%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className='libTaste'>
+                                        <p >Taste:
+                                            <br />
+                                            {entry.taste}
+                                        </p>
+                                        <br /><br />
+                                        <Link className='' to={`/oneEntry/${entry._id}`}>
+                                            Details
+                                        </Link>
+                                        <br /><br />
+                                    </div>
+                                </div>
                             </div>
-                            <br />
-                            <button className='' onClick={() => handleLike(entry._id, index)}>
-                                You Like That?
-                            </button>
-                        </div>
-                    </div>
-                );
-            })}
+                        );
+                    })}
+                </div>
+            </div>
         </div>
     );
 };

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-scroll';
 import { Link as RouterLink } from 'react-router-dom';
 import '../pages/style.css';
 import MobileMenu from './MobileMenu';
