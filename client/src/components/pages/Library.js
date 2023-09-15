@@ -1,5 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { Element } from 'react-scroll';
+import Indica from './Indica';
 import { Link } from 'react-router-dom';
 import { Image } from 'react-bootstrap';
 import Weed from '../images/weed.jpg';
@@ -9,9 +11,7 @@ const DisplayAllEntries = (props) => {
     const [entries, setEntries] = useState([]);
     const initialLikes = {};
 
-
     const handleLike = (entryId, entryIndex) => {
-
         axios
             .post(`http://localhost:8000/api/likeEntry`, { entryId })
             .then(() => {
@@ -28,7 +28,6 @@ const DisplayAllEntries = (props) => {
             });
     };
 
-
     useEffect(() => {
         axios
             .get('http://localhost:8000/api/allEntries')
@@ -40,7 +39,11 @@ const DisplayAllEntries = (props) => {
                         likes: likes,
                     };
                 });
-                setEntries(initialEntries.reverse());
+
+                // Sort the entries array by name in alphabetical order
+                const sortedEntries = initialEntries.sort((a, b) => a.name.localeCompare(b.name));
+
+                setEntries(sortedEntries);
             })
             .catch((err) => {
                 console.log(err);
@@ -51,66 +54,26 @@ const DisplayAllEntries = (props) => {
         <div className='libDad'>
             <br />
             <p className='libName'>The Library</p>
-            <div className=''>
-                <Link className='' to={'/dash'}>Home</Link>
-                <Link className='' to={`/newEntry`}>New Entry</Link>
+            <div className='btnBar'>
+                <Link className='btn' to={'/dash'}>Home</Link>
+                <Link className='btn' to={`/newEntry`}>New Entry</Link>
             </div>
-            <div className='libOuterShell'>
-                    <Image className='libPic' src={Weed} alt='...' />
+            <br />
+            <div className=''>
+                <br />
+                <Element><Indica /></Element>
                 <div className='libShell'>
                     {entries.map((entry, index) => {
                         return (
-                            <div className='libOuterBox' key={index}>
+                            <div className='libBox' key={index}>
                                 <h1>{entry.name}</h1>
-                                <h2 style={{ fontStyle: 'italic' }}>
-                                    "{entry.description}"</h2>
-                                <div className='libBox'>
-                                    <div className='libEntry'>
-                                        <h3 >Grown or distributed by:
-                                            <br />
-                                            {entry.distributor}
-                                        </h3>
-                                        <h4 >Strain:
-                                            <br />
-                                            {entry.strain}
-                                        </h4>
-                                        <h4 >What form (flower, dab, live resin, edible, etc...):
-                                            <br />
-                                            {entry.shape}
-                                        </h4>
-                                    </div>
-                                    <div className='graph'>
-                                        <p className='GTitle'>Weed Stats</p>
-                                        <div className=''>
-                                            <div className='bar'>
-                                                <span>THC%</span>
-                                                <div className='bar-fill' style={{ marginLeft: '5%', width: `${entry.totalTHC}%` }}></div>
-                                                <span className='percentage-label'>{entry.totalTHC}%</span>
-                                            </div>
-                                            <div className='bar'>
-                                                <span>CBD%</span>
-                                                <div className='bar-fill' style={{ marginLeft: '5%', marginBottom: '5%', width: `${entry.totalCBD}%` }}></div>
-                                                <span className='percentage-label'>{entry.totalCBD}%</span>
-                                            </div>
-                                            <div className='bar'>
-                                                <span>Terpenes%</span>
-                                                <div className='bar-fill' style={{marginLeft: '5%', width: `${entry.totalTerpenes}%` }}></div>
-                                                <span className='percentage-label'>{entry.totalTerpines}%</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className='libTaste'>
-                                        <p >Taste:
-                                            <br />
-                                            {entry.taste}
-                                        </p>
-                                        <br /><br />
-                                        <Link className='' to={`/oneEntry/${entry._id}`}>
-                                            Details
-                                        </Link>
-                                        <br /><br />
-                                    </div>
-                                </div>
+                                <h4 >Strain:<br />{entry.strain}</h4>
+                                <p >Taste:<br />{entry.taste}</p>
+                                <br />
+                                <Link className='btn' to={`/oneEntry/${entry._id}`}>
+                                    Details
+                                </Link>
+                                <br />
                             </div>
                         );
                     })}
