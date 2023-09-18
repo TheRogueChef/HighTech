@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { animateScroll as scroll } from 'react-scroll';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
-import '../components/style.css';
+import '../pages/style.css';
 
 const ScrollToTopButton = () => {
     const [isVisible, setIsVisible] = useState(false);

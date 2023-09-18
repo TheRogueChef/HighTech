@@ -1,10 +1,10 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Element } from 'react-scroll';
-import Indica from './Indica';
+import ScrollToTopButton from '../pages/ScrollToTopButton';
+
 import { Link } from 'react-router-dom';
-import { Image } from 'react-bootstrap';
-import Weed from '../images/weed.jpg';
+
 import '../pages/style.css';
 
 const DisplayAllEntries = (props) => {
@@ -32,23 +32,20 @@ const DisplayAllEntries = (props) => {
         axios
             .get('http://localhost:8000/api/allEntries')
             .then((res) => {
-                const initialEntries = res.data.map((entry) => {
-                    const likes = initialLikes[entry._id] || entry.likes || 0;
-                    return {
-                        ...entry,
-                        likes: likes,
-                    };
-                });
-
-                // Sort the entries array by name in alphabetical order
-                const sortedEntries = initialEntries.sort((a, b) => a.name.localeCompare(b.name));
-
+                const desiredStrainOrder = ['Hybrid', 'Sativa', 'Indica', 'Edible', 'Other'];
+                const filteredEntries = res.data.filter((entry) =>
+                    desiredStrainOrder.includes(entry.strain)
+                );
+                const sortedEntries = filteredEntries.sort((a, b) =>
+                    desiredStrainOrder.indexOf(a.strain) - desiredStrainOrder.indexOf(b.strain)
+                );
                 setEntries(sortedEntries);
             })
             .catch((err) => {
                 console.log(err);
             });
     }, []);
+
 
     return (
         <div className='libDad'>
@@ -61,26 +58,38 @@ const DisplayAllEntries = (props) => {
             <br />
             <div className=''>
                 <br />
-                <Element><Indica /></Element>
+
                 <div className='libShell'>
-                    {entries.map((entry, index) => {
-                        return (
-                            <div className='libBox' key={index}>
-                                <h1>{entry.name}</h1>
-                                <h4 >Strain:<br />{entry.strain}</h4>
-                                <p >Taste:<br />{entry.taste}</p>
-                                <br />
-                                <Link className='btn' to={`/oneEntry/${entry._id}`}>
-                                    Details
-                                </Link>
-                                <br />
+                    {['Hybrid', 'Sativa', 'Indica', 'Edible', 'Other'].map((strainType) => (
+                        <div key={strainType}>
+                            <div>
+                                <h2 className='Ifiller'>{strainType}</h2>
                             </div>
-                        );
-                    })}
+                    
+                            <div className='innerBox'>
+                                {entries
+                                    .filter((entry) => entry.strain === strainType)
+                                    .map((entry, index) => (
+                                        <div className='libBox' key={index}>
+                                            <h1>{entry.name}</h1>
+                                            <h4>Strain:<br />{entry.strain}</h4>
+                                            <p>Taste:<br />{entry.taste}</p>
+                                            <br />
+                                            <Link className='btn' to={`/oneEntry/${entry._id}`}>
+                                                Details
+                                            </Link>
+                                            <br />
+                                        </div>
+                                    ))}
+                            </div>
+                        </div>
+                    ))}
                 </div>
+                <ScrollToTopButton />
             </div>
         </div>
     );
+
 };
 
 export default DisplayAllEntries;
