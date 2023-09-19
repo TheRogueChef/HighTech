@@ -25,12 +25,16 @@ const EntrySchema = new mongoose.Schema({
         type: Number,
         required: [true, 'An amount is required']},
     totalTerpines: {
-        type: Number,
-        required: [true, 'An amount is required']},
+        type: Number},
     taste: {
         type: String,
         required: [true, 'A taste is required']},
     description: {
+        type: String,
+        required: [true, 'description required'],
+        minLength: [2, 'Description must be at least 2 characters'],
+        maxLength: 5000},
+    review: {
         type: String,
         required: [true, 'description required'],
         minLength: [2, 'Description must be at least 2 characters'],

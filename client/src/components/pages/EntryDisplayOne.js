@@ -73,7 +73,9 @@ const OneEntry = (props) => {
                             {entry.description}
                             </p>
 
-                            
+                            <Link className='btn' to={`/updateEntry/${entry._id}`}>
+                                                Reviews
+                                            </Link>
 
                         </div>
                     </div>

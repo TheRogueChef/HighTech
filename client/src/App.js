@@ -7,8 +7,10 @@ import Dash from './components/pages/Dash';
 import Age from './components/pages/AgeVerify';
 import Library from './components/pages/Library';
 import NewEntry from './components/pages/NewEntry';
+import NewReview from './components/pages/NewReview';
 import EntryDisplayOne from './components/pages/EntryDisplayOne';
 import Shops from './components/pages/shops';
+import Reviews from './components/pages/reviews';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 
@@ -26,6 +28,8 @@ function App() {
         <Route path="/newEntry" element={<NewEntry />} />
         <Route path="/oneEntry/:id" element={<EntryDisplayOne />} />
         <Route path="/shops" element={<Shops />} />
+        <Route path="/updateEntry/:id" element={<Reviews />} />
+        <Route path="/newReview" element={<NewReview />} />
       </Routes>
     </BrowserRouter>
   );

@@ -20,6 +20,7 @@ oneEntry: (req, res) => {
         })
 },
 
+
 createEntry: (req, res) => {
     Entry.create(req.body)
         .then((newEntry) => {res.json(newEntry)
