@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 
 
 const EntryForm = (props) => {
@@ -17,6 +17,7 @@ const EntryForm = (props) => {
         totalTerpines: 0.0,
         taste: '',
         description: ''
+        
     });
 
     const handleInputChange = (e) => {

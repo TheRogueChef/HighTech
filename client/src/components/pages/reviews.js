@@ -1,102 +1,84 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import '../pages/style.css';
+import { useParams, Link, useNavigate } from "react-router-dom";
 
-const UpdateEntry = (props) => {
+const UpdateReview = () => {
     const { id } = useParams();
-    const [name, setName] = useState();
-    const [distributor, setDistributor] = useState();
-    const [strain, setStrain] = useState();
-    const [shape, setShape] = useState();
-    const [totalTHC, setTotalTHC] = useState();
-    const [totalCBD, setTotalCBD] = useState();
-    const [totalTerpines, setTotalTerpines] = useState();
-    const [taste, setTaste] = useState();
-    const [description, setDescription] = useState();
-    const [review, setReview] = useState();
+    const [name, setName] = useState("");
+    const [reviews, setReviews] = useState([]);
+    const [newReview, setNewReview] = useState("");
     const navigate = useNavigate();
 
     useEffect(() => {
         axios
-            .get("http://localhost:8000/api/oneEntry/" + id)
+            .get(`http://localhost:8000/api/oneEntry/${id}`)
             .then((res) => {
-                setName(res.data.name);
-                setDistributor(res.data.distributor);
-                setStrain(res.data.strain);
-                setShape(res.data.shape);
-                setTotalTHC(res.data.totalTHC);
-                setTotalCBD(res.data.totalCBD);
-                setTotalTerpines(res.data.totalTerpines);
-                setTaste(res.data.taste);
-                setDescription(res.data.description);
-                setReview(res.data.review);
+                setName(res.data.name || "");
+                setReviews(res.data.reviews || []);
             })
-            .catch((err) => console.log(err));
+            .catch((err) => console.error(err));
     }, [id]);
 
-    const updateEntry = (e) => {
+    const updateReview = (e) => {
         e.preventDefault();
         axios
-            .put("http://localhost:8000/api/updateEntry/" + id, {
-                name,
-                distributor,
-                strain,
-                shape,
-                totalTHC,
-                totalCBD,
-                totalTerpines,
-                taste,
-                description,
-                review
-            
+            .put(`http://localhost:8000/api/updateEntry/${id}`, {
+                review: newReview
             })
             .then((res) => {
                 console.log(res);
-                navigate("/library");
+                setReviews([...reviews, newReview]);
+                setNewReview("");
             })
-            .catch((err) => console.log(err));
-    };
-
-    const deleteEntry = () => {
-        axios
-            .delete(`http://localhost:8000/api/allEntries/${id}`)
-            .then((res) => {
-                navigate("/library");
-            })
-            .catch((err) => console.log(err));
+            .catch((err) => console.error(err));
     };
 
     return (
-        <div className="">
-            <form onSubmit={updateEntry}>
-            <br />
-                <p className=""> Reviews</p>
-                <div className="btnBar">
-                    <input className="btn" type="submit" />
-                    <button onClick={deleteEntry} className="btn">
-                        Delete
+        <div className="revShell">
+            <form className= 'revForm' onSubmit={updateReview}>
+                <div className='revTitleBox' >
+                    <p className='revTitle' >{name}</p>
+                </div>
+                <div className="btnBar" >
+                    <button className="revBtn" onClick={() => navigate(-1)}>
+                        Back
                     </button>
-                    <Link className="btn" to={"/dash"}>
+                    <Link className="revBtn" to={"/dash"}>
                         Home
                     </Link>
                 </div>
-              <div>
+                <div>
                     <br />
-                    <label>Details</label>
-                    <br />
+                    <p style={{ color: 'darkGreen', fontSize: '2rem'}}>Give Us Your Review</p>
                     <textarea
-                        className="EntryBox"
+                        className="revEntryBox"
                         name="review"
-                        value={review}
-                        onChange={(e) => {setReview(e.target.value);
+                        value={newReview}
+                        onChange={(e) => {
+                            setNewReview(e.target.value);
                         }}
                     />
                     <br />
                     <br />
+                    <input className="revBtn" type="submit" />
+                    <br />
                 </div>
+                <br />
             </form>
+
+            <div className="reviewBox">
+                <h1>Reviews</h1>
+                {reviews.slice().reverse().map((review, index) => (
+                    <div key={index} className="reviews">
+                        <p>{review}</p>
+                        <br />
+                    </div>
+                ))}
+            </div>
         </div>
     );
 };
 
-export default UpdateEntry;
+export default UpdateReview;
+

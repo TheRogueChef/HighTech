@@ -6,6 +6,7 @@ const cookieParser = require('cookie-parser')
 require('dotenv').config();
 const libraryRoute = require('./routes/libraryRoute');
 const likeRoute = require('./routes/likeRoute');
+const eventRoute = require('./routes/eventRoute');
 
 app.use(express.json(), express.urlencoded({ extended: true }));
 
@@ -13,11 +14,10 @@ app.use(cors({credentials:true, origin:'http://localhost:3000'}));
 
 app.use(cookieParser())
 
-// const UserRoutes = require('./routes/userRoutes');
-// UserRoutes(app);
 
 libraryRoute(app);
 likeRoute(app);
+eventRoute(app);
 
 
 app.listen(8000, ()=> console.log('The server is all fired up on port 8000'));

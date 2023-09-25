@@ -7,7 +7,10 @@ import Dash from './components/pages/Dash';
 import Age from './components/pages/AgeVerify';
 import Library from './components/pages/Library';
 import NewEntry from './components/pages/NewEntry';
-import NewReview from './components/pages/NewReview';
+import AllEvents from './components/pages/EventDisplayAll';
+import OneEvent from './components/pages/EventDisplayOne';
+import NewEvent from './components/pages/NewEvent';
+import UpdateEvent from './components/pages/EventUpdate';
 import EntryDisplayOne from './components/pages/EntryDisplayOne';
 import Shops from './components/pages/shops';
 import Reviews from './components/pages/reviews';
@@ -29,7 +32,11 @@ function App() {
         <Route path="/oneEntry/:id" element={<EntryDisplayOne />} />
         <Route path="/shops" element={<Shops />} />
         <Route path="/updateEntry/:id" element={<Reviews />} />
-        <Route path="/newReview" element={<NewReview />} />
+        <Route path="/events" element={<AllEvents />} />
+        <Route path="/oneEvent/:id" element={<OneEvent />} />
+        <Route path="/newEvent" element={<NewEvent />} />
+        <Route path="/updateEvent/:id" element={<UpdateEvent />} />
+
       </Routes>
     </BrowserRouter>
   );

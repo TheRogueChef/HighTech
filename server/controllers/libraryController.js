@@ -30,12 +30,30 @@ createEntry: (req, res) => {
 },
 
 updateEntry: (req, res) => {
-    Entry.findOneAndUpdate({_id: req.params.id}, req.body, {new:true})
-        .then((updatedEntry) => {res.json(updatedEntry)
+    const entryId = req.params.id;
+    const newReview = req.body.review;
+
+    Entry.findById(entryId)
+        .exec()
+        .then((entry) => {
+            if (!entry) {
+                return res.status(404).json({ message: 'Entry not found' });
+            }
+            entry.reviews.push(newReview);
+            entry.save()
+                .then((updatedEntry) => {
+                    return res.status(200).json({ message: 'Entry updated successfully', updatedEntry });
+                })
+                .catch((err) => {
+                    return res.status(500).json({ message: 'Error updating entry in the database', error: err });
+                });
         })
-        .catch((err) => {res.status(500).json({message: 'Something went wrong', error:err})
-        })
+        .catch((err) => {
+            return res.status(500).json({ message: 'Error fetching entry from the database', error: err });
+        });
 },
+
+
 
 deleteEntry: (req, res) => {
     Entry.deleteOne({_id: req.params.id})

@@ -24,7 +24,7 @@ const EntrySchema = new mongoose.Schema({
     totalCBD: {
         type: Number,
         required: [true, 'An amount is required']},
-    totalTerpines: {
+    totalTerpenes: {
         type: Number},
     taste: {
         type: String,
@@ -34,11 +34,10 @@ const EntrySchema = new mongoose.Schema({
         required: [true, 'description required'],
         minLength: [2, 'Description must be at least 2 characters'],
         maxLength: 5000},
-    review: {
+    reviews: [{
         type: String,
-        required: [true, 'description required'],
-        minLength: [2, 'Description must be at least 2 characters'],
-        maxLength: 5000},
+        minLength: [2, 'Review must be at least 2 characters'],
+        maxLength: 5000}],
     likes: {
         type: Number,
         default: 0,

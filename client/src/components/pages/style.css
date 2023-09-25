@@ -241,6 +241,8 @@ main {
     background-color: rgba(0, 0, 0, .7);
     padding: .5%;
     text-decoration: none;
+    font-family: BestAccurate;
+    font-size: 1rem;
 }
 
 .btnBar {
@@ -252,20 +254,16 @@ main {
 @keyframes bounceIn {
     0% {
         transform: translateY(50px);
-        /* Start off-screen */
         opacity: 0;
     }
 
     60% {
         transform: translateY(-10px);
-        /* Bounce up slightly */
         opacity: 0.5;
-        /* Become fully visible */
     }
 
     80% {
         transform: translateY(5px);
-        /* Slight bounce down */
         opacity: 1;
     }
 
@@ -617,14 +615,18 @@ main {
 }
 
 .newTitle {
+    width: 30rem;
+    margin-left: 29%;
+}
+
+.newTitle {
     font-size: 5rem;
     color: darkgreen;
     text-shadow: .1rem .1rem black;
     border: solid black .15rem;
     border-radius: 2%;
     background-color: rgba(177, 209, 182, 0.7);
-    width: 30rem;
-    margin-left: 29%;
+    
 }
 
 .formBody {
@@ -634,7 +636,7 @@ main {
     margin-left: 30%;
 }
 
-.InputBox, .InputBoxNum, .EntryBox {
+.InputBox, .InputBoxNum, .EntryBox, .revEntryBox {
     height: 2rem;
     border-radius: 2rem; 
     background-color: rgba(177, 209, 182, 0.7);
@@ -654,8 +656,78 @@ main {
     width: 20%;
 }
 
-.EntryBox {
+.EntryBox, .revEntryBox {
     width: 60%;
     white-space: pre-wrap;
-    overflow: auto
+    overflow: auto;
+}
+
+/*reviews*/
+.revShell {
+    font-family: BestAccurate;
+    text-align: center;
+    background-image: url(../images/WeedOnTop2.jpg);
+    background-size: fill;
+    color: ghostwhite;
+}
+
+.revForm {
+    border: solid black .5rem;
+}
+
+.revTitleBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: -3%;
+    margin-bottom: -3%;
+}
+
+.revTitle {
+    width: auto;
+    font-size: 10rem;
+    color: darkgreen;
+    text-shadow: .1rem .1rem ghostwhite;
+    border: solid black .15rem;
+    border-radius: 2%;
+    background-color: rgba(177, 209, 182, 0.7);
+    padding: 1%;
+}
+
+.reviewBox {
+    border: solid .1rem ghostwhite;
+    background-image: url(../images/potPattern.jpg);
+    background-size: fill;
+    font-size: 3rem;
+}
+
+.revEntryBox {
+height: 5rem;
+background-color: rgba(177, 209, 182, 0.3);
+}
+
+.revBtn {
+    width: auto;
+    height: auto;
+    color: ghostwhite;
+    border: solid .25rem black;
+    border-radius: 10%;
+    background-color: rgba(0, 0, 0, .4);
+    padding: .5%;
+    text-decoration: none;
+    font-family: BestAccurate;
+    font-size: 1rem;
+}
+
+.reviews {
+    width: 100%;
+    height: auto;
+    margin-bottom: 2%;
+    font-size: 2rem;
+    text-shadow: .1rem .1rem black;
+    border: solid ghostwhite .15rem;
+    border-radius: 2%;
+    background-color: rgba(177, 209, 182, 0.2);
+    padding: 2%;
 }
