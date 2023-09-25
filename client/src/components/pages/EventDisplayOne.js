@@ -30,7 +30,7 @@ const OneEvent = (props) => {
     return (
         <div className='oneBodyBox'>
             <br  /><br  />
-            <p className='PageTitle'>----- Peep This Event -----</p>
+            <p className='PageTitle'>This is the event Man!!!</p>
             <br  /><br  />
         <div className='ButtonStrip'>
             <Link className='onebtn' to={`/updateEvent/${event._id}`}>Edit</Link>
