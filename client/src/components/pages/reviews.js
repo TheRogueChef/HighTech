@@ -36,7 +36,7 @@ const UpdateReview = () => {
 
     return (
         <div className="revShell">
-            <form className= 'revForm' onSubmit={updateReview}>
+            <form className='revForm' onSubmit={updateReview}>
                 <div className='revTitleBox' >
                     <p className='revTitle' >{name}</p>
                 </div>
@@ -50,7 +50,7 @@ const UpdateReview = () => {
                 </div>
                 <div>
                     <br />
-                    <p style={{ color: 'darkGreen', fontSize: '2rem'}}>Give Us Your Review</p>
+                    <p className='revRev'>Give Us Your Review for {name}</p>
                     <textarea
                         className="revEntryBox"
                         name="review"
@@ -68,13 +68,18 @@ const UpdateReview = () => {
             </form>
 
             <div className="reviewBox">
-                <h1>Reviews</h1>
-                {reviews.slice().reverse().map((review, index) => (
-                    <div key={index} className="reviews">
-                        <p>{review}</p>
-                        <br />
-                    </div>
+                
+                    <p className='revRev1'>Reviews</p>
+                    {reviews.slice().reverse().map((review, index) => (
+                       
+                        <div key={index} className="reviews">
+                            <p style={{ width: '40%'}}></p>
+                            <p style={{ width: '60%'}}>{review}</p>
+                            <br />
+                        </div>
+                    
                 ))}
+                
             </div>
         </div>
     );

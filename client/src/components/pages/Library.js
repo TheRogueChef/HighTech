@@ -50,13 +50,16 @@ const DisplayAllEntries = (props) => {
     return (
         <div className='libDad'>
             <br />
+            <div className='libCenter'>
             <p className='libName'>The Library</p>
+            </div>
             <div className='btnBar'>
                 <Link className='btn' to={'/dash'}>Home</Link>
                 <Link className='btn' to={`/newEntry`}>New Entry</Link>
             </div>
             <br />
-            <div className=''>
+            
+            
                 <br />
 
                 <div className='libShell'>
@@ -71,11 +74,11 @@ const DisplayAllEntries = (props) => {
                                     .filter((entry) => entry.strain === strainType)
                                     .map((entry, index) => (
                                         <div className='libBox' key={index}>
-                                            <h1>{entry.name}</h1>
-                                            <h4>Strain:<br />{entry.strain}</h4>
-                                            <p>Taste:<br />{entry.taste}</p>
+                                            <p className='boxName'>{entry.name}</p>
+                                            <p>Strain:<br /><p className='boxWords'>{entry.strain}</p></p>
+                                            <p>Taste:<br /><p className='boxWords' >{entry.taste}</p></p>
                                             <br />
-                                            <Link className='btn' to={`/oneEntry/${entry._id}`}>
+                                            <Link className='libBtn' to={`/oneEntry/${entry._id}`}>
                                                 Details
                                             </Link>
                                             <br />
@@ -86,7 +89,7 @@ const DisplayAllEntries = (props) => {
                     ))}
                 </div>
                 <ScrollToTopButton />
-            </div>
+            
         </div>
     );
 

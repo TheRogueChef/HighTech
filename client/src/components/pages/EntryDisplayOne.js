@@ -29,18 +29,13 @@ const OneEntry = (props) => {
                     <div className='viewBox'>
                         <div className='viewEntry'>
                             <p >Grown or distributed by:
-                                <br />
-                                {entry.distributor}
+                                <p style={{ color: 'greenyellow', marginTop: '-2%'}}>{entry.distributor}</p>
                             </p>
-                          
                             <p >Strain:
-                                <br />
-                                {entry.strain}
+                                <p style={{ color: 'greenyellow', marginTop: '-2%'}}>{entry.strain}</p>
                             </p>
-                         
                             <p >What form:
-                                <br />
-                                {entry.shape}
+                                <p style={{ color: 'greenyellow', marginTop: '-2%'}}>{entry.shape}</p>
                             </p>
                         </div>
                         <div className='graph'>
@@ -65,15 +60,13 @@ const OneEntry = (props) => {
                         </div>
                         <div className='viewTaste'>
                             <p >Taste:
-                                <br />
-                                {entry.taste}
+                                <p style={{ color: 'greenyellow', marginTop: '-2%'}}>{entry.taste}</p>
                             </p>
                             <p>Tell us more:
-                                <br />
-                            {entry.description}
+                            <p style={{ color: 'greenyellow', marginTop: '-2%'}}>{entry.description}</p>
                             </p>
 
-                            <Link className='btn' to={`/updateEntry/${entry._id}`}>
+                            <Link className='revBtn' to={`/updateEntry/${entry._id}`}>
                                                 Reviews
                                             </Link>
 

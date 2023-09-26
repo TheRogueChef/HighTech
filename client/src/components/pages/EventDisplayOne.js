@@ -28,20 +28,20 @@ const OneEvent = (props) => {
 
 
     return (
-        <div className='oneBodyBox'>
+        <div className='viewDad'>
             <br  /><br  />
-            <p className='PageTitle'>This is the event Man!!!</p>
+            <p className='viewName'>{event.eventTitle}</p>
             <br  /><br  />
-        <div className='ButtonStrip'>
-            <Link className='onebtn' to={`/updateEvent/${event._id}`}>Edit</Link>
+        <div className='btnBar'>
+            <Link className='btn' to={`/updateEvent/${event._id}`}>Edit</Link>
             <br /><br />
-            <Link className='onebtn' to={`/dash`}>Home</Link>
+            <Link className='btn' to={`/dash`}>Home</Link>
             <br />
-            <Link className='onebtn' to={`/events`}>All Events</Link>
+            <Link className='btn' to={`/events`}>All Events</Link>
         </div>
-            <div className='oneBox'>
+            <div className='viewShell'>
                 <br />
-                <p className= 'TitleBox'>{event.eventTitle}</p>
+                <p className= 'viewEntry'>{event.eventTitle}</p>
                 <br />
                 <h3> {event.eventLocation}</h3>
                 <br />
