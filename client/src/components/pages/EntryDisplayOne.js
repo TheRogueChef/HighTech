@@ -54,7 +54,7 @@ const OneEntry = (props) => {
                                 <div className='bar'>
                                     <span>Terpenes%</span>
                                     <div className='bar-fill' style={{ marginLeft: '5%', width: `${entry.totalTerpenes}%` }}></div>
-                                    <span className='percentage-label'>{entry.totalTerpines}%</span>
+                                    <span className='percentage-label'>{entry.totalTerpenes}%</span>
                                 </div>
                             </div>
                         </div>

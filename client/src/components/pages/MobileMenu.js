@@ -40,6 +40,10 @@ const MobileMenu = () => {
                         Events
                     </Link>
                     <br /><br />
+                    <Link to="stories" smooth={true} duration={500}>
+                        Stories
+                    </Link>
+                    <br /><br />
                     <Link to="docs" smooth={true} duration={500}>
                         Docs
                     </Link>

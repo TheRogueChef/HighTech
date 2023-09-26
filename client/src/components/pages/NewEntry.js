@@ -14,7 +14,7 @@ const EntryForm = (props) => {
         shape: '',
         totalTHC: 0.0,
         totalCBD: 0.0,
-        totalTerpines: 0.0,
+        totalTerpenes: 0.0,
         taste: '',
         description: ''
         
@@ -28,7 +28,7 @@ const EntryForm = (props) => {
         e.preventDefault();
         axios.post('http://localhost:8000/api/newEntry', entry)
             .then((res) => {
-                setEntry({ name: "", distributor: "", strain: "", shape: '', totalTHC: "", totalCBD: "", totalTerpines: "", taste: "", description: "" })
+                setEntry({ name: "", distributor: "", strain: "", shape: '', totalTHC: "", totalCBD: "", totalTerpenes: "", taste: "", description: "" })
                 navigate('/library')
             })
             .catch((err) => {
@@ -114,12 +114,12 @@ const EntryForm = (props) => {
                     }
                     <br />
                     <br />
-                    <label >Total Terpines </label>
-                    <input type="number" onChange={handleInputChange} value={entry.totalTerpines} name='totalTerpines' className='InputBoxNum' />%
+                    <label >Total Terpenes </label>
+                    <input type="number" onChange={handleInputChange} value={entry.totalTerpenes} name='totalTerpenes' className='InputBoxNum' />%
                     <br />
                     {
-                        errors.totalTerpines ?
-                            <p className='text-danger'>{errors.totalTerpines.message}</p> :
+                        errors.totalTerpenes ?
+                            <p className='text-danger'>{errors.totalTerpenes.message}</p> :
                             null
                     }
                     <br />
