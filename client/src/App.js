@@ -12,8 +12,10 @@ import OneEvent from './components/pages/EventDisplayOne';
 import NewEvent from './components/pages/NewEvent';
 import UpdateEvent from './components/pages/EventUpdate';
 import EntryDisplayOne from './components/pages/EntryDisplayOne';
-import Shops from './components/pages/shops';
 import Reviews from './components/pages/reviews';
+import Stories from './components/pages/StoryDisplayAll';
+import NewStory from './components/pages/NewStory';
+import OneStory from './components/pages/StoryDisplayOne';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 
@@ -30,13 +32,14 @@ function App() {
         <Route path="/library" element={<Library />} />
         <Route path="/newEntry" element={<NewEntry />} />
         <Route path="/oneEntry/:id" element={<EntryDisplayOne />} />
-        <Route path="/shops" element={<Shops />} />
         <Route path="/updateEntry/:id" element={<Reviews />} />
         <Route path="/events" element={<AllEvents />} />
         <Route path="/oneEvent/:id" element={<OneEvent />} />
         <Route path="/newEvent" element={<NewEvent />} />
         <Route path="/updateEvent/:id" element={<UpdateEvent />} />
-
+        <Route path="/stories" element={<Stories />} />
+        <Route path="/newStory" element={<NewStory />} />
+        <Route path="/oneStory/:id" element={<OneStory />} />
       </Routes>
     </BrowserRouter>
   );

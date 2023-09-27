@@ -54,11 +54,11 @@ const DisplayAllEntries = (props) => {
             <p className='libName'>The Library</p>
             </div>
             <div className='btnBar'>
-                <Link className='btn' to={'/dash'}>Home</Link>
-                <Link className='btn' to={`/newEntry`}>New Entry</Link>
+                <Link className='revBtn' to={'/dash'}>Home</Link>
+                <Link className='revBtn' to={`/newEntry`}>New Entry</Link>
             </div>
             <br />
-            
+    
             
                 <br />
 

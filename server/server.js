@@ -7,6 +7,7 @@ require('dotenv').config();
 const libraryRoute = require('./routes/libraryRoute');
 const likeRoute = require('./routes/likeRoute');
 const eventRoute = require('./routes/eventRoute');
+const storyRoute = require('./routes/storyRoute');
 
 app.use(express.json(), express.urlencoded({ extended: true }));
 
@@ -18,6 +19,7 @@ app.use(cookieParser())
 libraryRoute(app);
 likeRoute(app);
 eventRoute(app);
+storyRoute(app);
 
 
 app.listen(8000, ()=> console.log('The server is all fired up on port 8000'));

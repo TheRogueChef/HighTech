@@ -1,28 +1,28 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
-
 import '../pages/style.css';
 
-const EventForm = (props) => {
+const StoryForm = (props) => {
     const [errors, setErrors] = useState({})
     const navigate = useNavigate()
-    const [event, setEvent] = useState({
-        eventTitle: '',
-        eventDate: '',
-        eventLocation: '',
+    const [story, setStory] = useState({
+        storyTitle: '',
+        storyAuthor: '',
+        storyDate: '',
+        storyLocation: '',
     });
 
     const handleInputChange = (e) => {
-        setEvent({ ...event, [e.target.name]: e.target.value })
+        setStory({ ...story, [e.target.name]: e.target.value })
     }
 
     const submitHandler = (e) => {
         e.preventDefault();
-        axios.post('http://localhost:8000/api/newEvent', event)
+        axios.post('http://localhost:8000/api/newStory', story)
             .then((res) => {
-                setEvent({ ...event, eventTitle: "", eventDate: '', eventLocation: "" })
-                navigate('/events')
+                setStory({ ...story, storyTitle: "", storyDate: '',storyAuthor: '', storyLocation: "" })
+                navigate('/stories')
             })
             .catch((err) => {
                 setErrors(err)
@@ -34,55 +34,69 @@ const EventForm = (props) => {
             <div className='newLeft'></div>
             <div className='newRight'>
                 <form onSubmit={submitHandler}>
-                    <p className='newTitle'>New Event</p>
+                    <p className='newTitle'>New Story</p>
                     <div className='btnBar'>
 
-                        <Link className='newBtn' to={`/events`}>All Events</Link>
+                        <Link className='newBtn' to={`/stories`}>All Stories</Link>
                         <Link className='newBtn' to={'/dash'}>Home</Link>
                     </div>
                     <br /><br />
                     <div className='formBody'>
-                        <label>What's it called? </label>
+                        <label>Name Your Story</label>
                         <br />
                         <input
                             type="text"
                             onChange={handleInputChange}
-                            value={event.eventTitle} name='eventTitle'
+                            value={story.storyTitle} name='storyTitle'
                             className='InputBox' />
                         <br />
                         {
-                            errors.eventTitle ?
-                                <p className='text-danger'>{errors.eventTitle.message}</p> :
+                            errors.storyTitle ?
+                                <p className='text-danger'>{errors.storyTitle.message}</p> :
                                 null
                         }
                         <br />
-                        <label>When is it? </label>
+                        <label>Who's story is this?</label>
+                        <br />
+                        <input
+                            type="text"
+                            onChange={handleInputChange}
+                            value={story.storyAuthor} name='storyAuthor'
+                            className='InputBox' />
+                        <br />
+                        {
+                            errors.storyAuthor ?
+                                <p className='text-danger'>{errors.storyAuthor.message}</p> :
+                                null
+                        }
+                        <br />
+                        <label>When did it Happen? </label>
                         <br />
                         <input
                             type="date"
                             onChange={handleInputChange}
-                            value={event.eventDate}
-                            name='eventDate'
+                            value={story.storyDate}
+                            name='storyDate'
                             className='InputBox' />
                         <br />
                         {
-                            errors.eventDate ?
-                                <p className='text-danger'>{errors.eventDate.message}</p> :
+                            errors.storyDate ?
+                                <p className='text-danger'>{errors.storyDate.message}</p> :
                                 null
                         }
                         <br />
-                        <label>Where is it?</label>
+                        <label>Where did it Occur?</label>
                         <br />
                         <input
                             type="text"
                             onChange={handleInputChange}
-                            value={event.eventLocation}
-                            name='eventLocation'
+                            value={story.storyLocation}
+                            name='storyLocation'
                             className='InputBox' />
                         <br />
                         {
-                            errors.eventLocation ?
-                                <p className='text-danger'>{errors.eventLocation.message}</p> :
+                            errors.storyLocation ?
+                                <p className='text-danger'>{errors.storyLocation.message}</p> :
                                 null
                         }
                         <br />
@@ -91,12 +105,12 @@ const EventForm = (props) => {
                         <textarea
                             type="text"
                             onChange={handleInputChange}
-                            value={event.eventDetails}
-                            name='eventDetails'
+                            value={story.storyDetails}
+                            name='storyDetails'
                             className='EvEntryBox' />
                         {
-                            errors.eventDetails ?
-                                <p className='text-danger'>{errors.eventDetails.message}</p> :
+                            errors.storyDetails ?
+                                <p className='text-danger'>{errors.storyDetails.message}</p> :
                                 null
                         }
                         <br /><br />
@@ -108,4 +122,4 @@ const EventForm = (props) => {
     )
 }
 
-export default EventForm;
+export default StoryForm;

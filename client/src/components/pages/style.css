@@ -561,8 +561,9 @@ main {
     color: ghostwhite;
     background-image: url(../images/weed.jpg);
     background-size: cover;
-    height: 100vh;
+    height: 100%;
     padding-top: 1%;
+    padding-bottom: 5%;
     text-align: center;
 }
 
@@ -637,6 +638,8 @@ main {
     background-color: rgba(0, 0, 0, .7);
     padding: .5%;
     text-decoration: none;
+    font-family: BestAccurate;
+    font-size: 1.5rem;
 }
 
 .newLeft {
@@ -708,8 +711,6 @@ main {
     color: ghostwhite;
 }
 
-
-
 .revTitleBox {
     display: flex;
     flex-direction: column;
@@ -767,7 +768,7 @@ main {
     color: greenyellow;
     border: solid .25rem ghostwhite;
     border-radius: 10%;
-    background-color: rgba(0, 0, 0, .2);
+    background-color: rgba(0, 0, 0, .5);
     padding: 1%;
     text-decoration: none;
     font-family: BestAccurate;
@@ -798,15 +799,16 @@ main {
     height: 100%;
     width: auto;
     color: ghostwhite;
+    padding-bottom: 10%;
 }
 
 .evTitle {
     width: auto;
     font-size: 6rem;
     color: ghostwhite;
-    text-shadow: .1rem .1rem black;
+    text-shadow: .1rem .1rem greenyellow;
     border: .25rem solid ghostwhite;
-    background-color: rgba(0, 0, 0, .4);
+    background-color: rgba(0, 0, 0, .6);
     border-radius: 5%;
     padding: 1%;
 }
@@ -864,10 +866,10 @@ main {
     background-image: url(../images/sideWeed.jpg);
     background-size: cover;
     width: auto;
-    height: 100vh;
+    height: 100%;
     padding-top: 2%;
     font-family: BestAccurate;
-    padding-bottom: 2%;
+    padding-bottom: 10%;
 }
 
 .EvEntryBox {
@@ -905,6 +907,7 @@ main {
     background-size: cover;
     height: 100%;
     padding-top: 1%;
+    padding-bottom: 5%;
     text-align: center;
 }
 
@@ -949,4 +952,19 @@ main {
 }
 .dispWords2 {
     margin-top: -.5%;
+}
+
+/*updateEvent*/
+.bottomBtnBar {
+    display: flex;
+    justify-content: space-evenly;
+    margin-left: -40%;
+    font-family: BestAccurate;
+}
+
+/*storyOne*/
+.topBox {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
 }

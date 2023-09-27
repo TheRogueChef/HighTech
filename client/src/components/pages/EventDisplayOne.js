@@ -48,11 +48,12 @@ const OneEvent = (props) => {
             <br /><br />
             </div>
             <div className='btnBar'>
-                <Link className='btn' to={`/updateEvent/${event._id}`}>Edit</Link>
-                <Link className='btn' to={`/dash`}>Home</Link>
-                <Link className='btn' to={`/events`}>Back</Link>
+                <Link className='revBtn' to={`/updateEvent/${event._id}`}>Edit</Link>
+                <Link className='revBtn' to={`/dash`}>Home</Link>
+                <Link className='revBtn' to={`/events`}>Back</Link>
+               
             </div>
-            <br />
+            <br /><br />
         </div>
     )
 }

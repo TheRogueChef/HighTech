@@ -48,25 +48,23 @@ const UpdateEvent = (props) => {
     };
 
     return (
-        <div className="">
+        <div className="newEvShell">
+            <div className='newLeft'></div>
+            <div className='newRight'>
             <form onSubmit={updateEvent}>
             <br />
-                <p className="">----- Update Event -----</p>
+                <p className="newTitle">Update Event</p>
                 <div className="btnBar">
-                    <input className="btn" type="submit" />
-                    <button onClick={deleteEvent} className="btn">
-                        Delete
-                    </button>
-                    <Link className="btn" to={"/dash"}>
+                    <Link className="newBtn" to={"/dash"}>
                         Home
                     </Link>
-                    <button className="btn" onClick={() => navigate(-1)}>
+                    <button className="newBtn" onClick={() => navigate(-1)}>
                         Back
                     </button>
                 </div>
                 <br />
                 <br />
-                <div className="BoxLabel">
+                <div className="formBody">
                     <label>Event Title</label>
                     <input
                     className="InputBox"
@@ -106,7 +104,7 @@ const UpdateEvent = (props) => {
                     <label>Event Details</label>
                     <br />
                     <textarea
-                        className="EntryBox"
+                        className="EvEntryBox"
                         name="eventDetails"
                         value={eventDetails}
                         onChange={(e) => {setEventDetails(e.target.value);
@@ -114,8 +112,15 @@ const UpdateEvent = (props) => {
                     />
                     <br />
                     <br />
+                    <div className='bottomBtnBar'>
+                    <input className="newBtn" type="submit" />
+                    <button onClick={deleteEvent} className="newBtn">
+                        Delete
+                    </button>
+                    </div>
                 </div>
             </form>
+            </div>
         </div>
     );
 };

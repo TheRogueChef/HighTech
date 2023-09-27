@@ -76,8 +76,8 @@ const OneEntry = (props) => {
             </div>
             <br /><br />
             <div className='btnBar'>
-                <Link className='btn' to={'/dash'}>Home</Link>
-                <Link className='btn' to={`/library`}>Back</Link>
+                <Link className='revBtn' to={'/dash'}>Home</Link>
+                <Link className='revBtn' to={`/library`}>Back</Link>
             </div>
         </div>
     )

@@ -28,14 +28,6 @@ const MobileMenu = () => {
                         Library
                     </Link>
                     <br /><br />
-                    <Link to="shops" smooth={true} duration={500}>
-                        Shops
-                    </Link>
-                    <br /><br />
-                    <Link to="reviews" smooth={true} duration={500}>
-                        Reviews
-                    </Link>
-                    <br /><br />
                     <Link to="events" smooth={true} duration={500}>
                         Events
                     </Link>
