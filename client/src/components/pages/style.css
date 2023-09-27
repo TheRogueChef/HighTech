@@ -546,9 +546,10 @@ main {
     background-size: cover;
     color: ghostwhite;
     font-family: BestAccurate;
+    text-shadow: .2rem .2rem black;
     border: solid ghostwhite.25rem;
     border-radius: 2%;
-    font-size: 4rem;
+    font-size: 6rem;
     text-align: center;
     padding-top: 2.5%;
     margin-left: 5%;
