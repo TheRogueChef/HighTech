@@ -15,12 +15,20 @@ const UpdateEvent = (props) => {
             .get("http://localhost:8000/api/oneEvent/" + id)
             .then((res) => {
                 setEventTitle(res.data.eventTitle);
-                setEventDate(res.data.eventDate);
+                setEventDate(formatDate(res.data.eventDate));
                 setEventLocation(res.data.eventLocation);
                 setEventDetails(res.data.eventDetails);
             })
             .catch((err) => console.log(err));
     }, [id]);
+
+    const formatDate = (dateString) => {
+        const date = new Date(dateString);
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, "0");
+        const day = String(date.getDate()).padStart(2, "0");
+        return `${year}-${month}-${day}`;
+    };
 
     const updateEvent = (e) => {
         e.preventDefault();
