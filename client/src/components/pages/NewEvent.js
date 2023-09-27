@@ -22,7 +22,7 @@ const EventForm = (props) => {
         axios.post('http://localhost:8000/api/newEvent', event)
             .then((res) => {
                 setEvent({...event, eventTitle:"", eventDate: '', eventLocation: ""})
-                navigate('/dash')
+                navigate('/events')
             })
             .catch((err) => {
                 setErrors(err)
@@ -30,17 +30,20 @@ const EventForm = (props) => {
     }
 
     return (
-        <div className="">
+        <div className="newEvShell">
+<div className='newLeft'></div>
+<div className='newRight'>
             <form onSubmit={submitHandler}>
-                <p className= ''>----- New Event -----</p>
+                <p className= 'newTitle'>New Event</p>
                 <div className= 'btnBar'>
-                    <button className='btn' >Post</button>
-                    <Link className='btn' to={`/events`}>All Events</Link> 
-                    <Link className='btn' to={'/dash'}>Home</Link>
+                    
+                    <Link className='newBtn' to={`/events`}>All Events</Link> 
+                    <Link className='newBtn' to={'/dash'}>Home</Link>
                 </div>
                 <br /><br />
-                <div className= ''>
+                <div className= 'formBody'>
                     <label>What's it called? </label>
+                    <br />
                     <input 
                     type="text"
                     onChange={handleInputChange} 
@@ -54,6 +57,7 @@ const EventForm = (props) => {
                     }
                     <br />
                     <label>When is it? </label>
+                    <br />
                     <input 
                     type="date" 
                     onChange={handleInputChange} 
@@ -68,6 +72,7 @@ const EventForm = (props) => {
                     }
                     <br />
                     <label>Where is it?</label>
+                    <br />
                     <input 
                     type="text" 
                     onChange={handleInputChange} 
@@ -88,15 +93,17 @@ const EventForm = (props) => {
                     onChange={handleInputChange} 
                     value={event.eventDetails} 
                     name='eventDetails' 
-                    className= 'EntryBox' />
+                    className= 'EvEntryBox' />
                     {
                         errors.eventDetails?
                         <p className='text-danger'>{errors.eventDetails.message}</p>:
                         null
                     }
-                    <br />
+                    <br /><br />
+                    <button className='newEvBtn' >Post</button>
                 </div>
-            </form>      
+            </form>   
+            </div> 
         </div>
     )
 }

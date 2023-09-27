@@ -3,6 +3,12 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import '../pages/style.css';
 
+function formatDate(dateString) {
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    return new Date(dateString).toLocaleDateString(undefined, options);
+  }
+
+
 const DisplayAllEvents = (props) => {
     const [events, setEvents] = useState([]);
 
@@ -12,7 +18,8 @@ const DisplayAllEvents = (props) => {
             .then((res) => {
                 const initialEvents = res.data.map((event) => {
                     return {
-                        ...event
+                        ...event,
+                        eventDate: formatDate(event.eventDate),
                     
                     };
                 });
@@ -24,25 +31,27 @@ const DisplayAllEvents = (props) => {
     }, []);
 
     return (
-        <div className= ''>
-            <br  />
-            <h1 className=''>All Events</h1>
-            <br/>
+        <div className= 'evShell'>
+            <br />
+            <div className='libCenter'>
+            <p className='evTitle'>All Events</p>
+            </div>
             <div className='btnBar'>
-                <Link className='btn' to={'/dash'}>Home</Link>
-                <Link className='btn' to={`/newEvent`}>New Event</Link>
-            </div>  
+                <Link className='bubBtn' to={'/dash'}>Home</Link>
+                <Link className='bubBtn' to={`/newEvent`}>New Event</Link>
+            </div> 
+            <br />
+            <div className='evBox'>
             {events.map((event, index) => (
-                <div className='' key={index}>
-                    <h1>{event.eventTitle}</h1>
-                    <h4>{event.eventLocation}</h4>
-                    <h4>{event.eventDate}</h4>
-                    <h2 style={{ fontStyle: 'italic'}}>"{event.eventDetails}"</h2>
-                    <br />
-                    <Link className='btn' to={`/oneEvent/${event._id}`}>Deets</Link>
+                <div className='evBubble' key={index}>
+                    <p className='bubTitle'>{event.eventTitle}</p>
+                    <p className='bubLocation'>{event.eventLocation}</p>
+                    <p className='bubLocation'>{event.eventDate}</p>
+                    <Link className='bubBtn' to={`/oneEvent/${event._id}`}>Details</Link>
                     <br /><br />
                 </div>
             ))}
+            </div> 
         </div>
     );
 };

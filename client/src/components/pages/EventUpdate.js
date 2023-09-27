@@ -42,7 +42,7 @@ const UpdateEvent = (props) => {
         axios
             .delete(`http://localhost:8000/api/allEvents/${id}`)
             .then((res) => {
-                navigate("/allEvents");
+                navigate("/events");
             })
             .catch((err) => console.log(err));
     };
@@ -60,6 +60,9 @@ const UpdateEvent = (props) => {
                     <Link className="btn" to={"/dash"}>
                         Home
                     </Link>
+                    <button className="btn" onClick={() => navigate(-1)}>
+                        Back
+                    </button>
                 </div>
                 <br />
                 <br />

@@ -209,7 +209,7 @@ main {
     border: .25rem solid ghostwhite;
     border-radius: 50%;
     background-color: rgba(0, 0, 0, .8);
-   
+
 }
 
 .dash420 {
@@ -406,7 +406,7 @@ main {
     height: 100%;
     width: auto;
     text-align: center;
-    
+
 }
 
 .libCenter {
@@ -422,7 +422,7 @@ main {
     border-radius: 10%;
     background-color: rgba(0, 0, 0, .7);
     padding: 1.5%;
-   
+
 }
 
 .libBtn {
@@ -566,7 +566,8 @@ main {
     text-align: center;
 }
 
-.viewShell {
+.viewShell,
+.dispShell {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -632,7 +633,7 @@ main {
     height: auto;
     color: greenyellow;
     border: solid .15rem black;
-    border-radius: 2%;
+    border-radius: 5%;
     background-color: rgba(0, 0, 0, .7);
     padding: .5%;
     text-decoration: none;
@@ -786,4 +787,166 @@ main {
     background-image: url(../images/sideWeed.jpg);
     background-size: cover;
     color: darkgreen;
+}
+
+/*events*/
+.evShell {
+    font-family: BestAccurate;
+    text-align: center;
+    background-image: url(../images/WeedOnTop2.jpg);
+    background-size: cover;
+    height: 100%;
+    width: auto;
+    color: ghostwhite;
+}
+
+.evTitle {
+    width: auto;
+    font-size: 6rem;
+    color: ghostwhite;
+    text-shadow: .1rem .1rem black;
+    border: .25rem solid ghostwhite;
+    background-color: rgba(0, 0, 0, .4);
+    border-radius: 5%;
+    padding: 1%;
+}
+
+.evBox {
+    display: flex;
+    width: auto;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+.evBubble {
+    border: .25rem solid ghostwhite;
+    border-radius: 50%;
+    width: 20rem;
+    height: 20rem;
+    padding: 1.5%;
+    margin: 1%;
+    background-image: url(../images/WeedOnTop.jpg);
+    background-size: cover;
+    overflow-wrap: break-word;
+    font-size: 1.25rem;
+    text-shadow: .25rem .25rem black;
+}
+
+.bubTitle {
+    font-size: 2.5rem;
+    color: greenyellow;
+}
+
+.bubLocation {
+    font-size: 2rem;
+}
+
+.bubBtn {
+    width: auto;
+    height: auto;
+    color: greenyellow;
+    border: solid .25rem ghostwhite;
+    border-radius: 10%;
+    background-color: rgba(0, 0, 0, .5);
+    padding: .5%;
+    text-decoration: none;
+    font-family: BestAccurate;
+    font-size: 1.5rem;
+    text-shadow: none;
+}
+
+/*newEvent*/
+.newEvShell {
+    display: flex;
+    text-align: center;
+    background-image: url(../images/sideWeed.jpg);
+    background-size: cover;
+    width: auto;
+    height: 100vh;
+    padding-top: 2%;
+    font-family: BestAccurate;
+    padding-bottom: 2%;
+}
+
+.EvEntryBox {
+    height: 6rem;
+    border-radius: 2rem;
+    background-color: rgba(177, 209, 182, 0.7);
+    padding-left: 1%;
+    margin-left: 1%;
+    font-family: BestAccurate;
+    font-size: 1.5rem;
+    width: 60%;
+    white-space: pre-wrap;
+    overflow: auto;
+}
+
+.newEvBtn {
+    width: 4rem;
+    height: auto;
+    font-family: BestAccurate;
+    color: greenyellow;
+    border: solid .15rem black;
+    border-radius: 5%;
+    background-color: rgba(0, 0, 0, .7);
+    padding: .5%;
+    text-decoration: none;
+    font-size: 2rem;
+    margin-left: 22%;
+}
+
+/*eventDisplayOne*/
+.dispDad{
+    font-family: BestAccurate;
+    color: ghostwhite;
+    background-image: url(../images/weed.jpg);
+    background-size: cover;
+    height: 100%;
+    padding-top: 1%;
+    text-align: center;
+}
+
+.dispBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.dispShell {
+    border: .25rem solid ghostwhite;
+    border-radius: 2%;
+    background-color: rgba(0, 0, 0, .7);
+    font-size: 2rem;
+    width: 50rem;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+.dispName {
+    font-size: 5rem;
+    border: solid .25rem ghostwhite;
+    color: greenyellow;
+    border-radius: 2%;
+    background-color: rgba(0, 0, 0, .5);
+    width: auto;
+    padding: 1%;
+    text-shadow: .1rem .1rem ghostwhite;
+}
+
+.dispP {
+    margin-top: -2.5%;
+}
+.dispP2 {
+    margin-top: -1%;
+}
+
+.dispWords, .dispWords2 {
+    color: greenyellow;
+    margin-top: -1.5%;
+}
+.dispWords2 {
+    margin-top: -.5%;
 }

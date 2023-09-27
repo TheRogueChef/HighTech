@@ -143,7 +143,7 @@ const EntryForm = (props) => {
                     <br /><br />
 
                 </div>
-                <button className='newBtn' >Post</button>
+                <button className='newEvBtn' >Post</button>
 
             </form>
             </div>

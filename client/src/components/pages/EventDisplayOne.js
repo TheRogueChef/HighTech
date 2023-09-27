@@ -3,6 +3,11 @@ import axios from 'axios';
 import { Link, useParams } from 'react-router-dom';
 import '../pages/style.css';
 
+function formatDate(dateString) {
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    return new Date(dateString).toLocaleDateString(undefined, options);
+}
+
 const OneEvent = (props) => {
     const { id } = useParams();
     const [event, setEvent] = useState({});
@@ -13,14 +18,17 @@ const OneEvent = (props) => {
         axios.get("http://localhost:8000/api/oneEvent/" + id)
             .then((res) => {
                 if (isMounted) {
-                setEvent(res.data);
-            }
+                    res.data.eventDate = formatDate(res.data.eventDate);
+                        setEvent(res.data);
+
+                }
             })
             .catch((err) => {
                 console.log(err);
             });
-        return ()=> {
+        return () => {
             isMounted = false;
+
         };
     }, [id]);
 
@@ -28,28 +36,23 @@ const OneEvent = (props) => {
 
 
     return (
-        <div className='viewDad'>
-            <br  /><br  />
-            <p className='viewName'>{event.eventTitle}</p>
-            <br  /><br  />
-        <div className='btnBar'>
-            <Link className='btn' to={`/updateEvent/${event._id}`}>Edit</Link>
-            <br /><br />
-            <Link className='btn' to={`/dash`}>Home</Link>
+        <div className='dispDad'>
+            <div className='dispBox'>
+            <p className='dispName'>{event.eventTitle}</p>
             <br />
-            <Link className='btn' to={`/events`}>All Events</Link>
-        </div>
-            <div className='viewShell'>
-                <br />
-                <p className= 'viewEntry'>{event.eventTitle}</p>
-                <br />
-                <h3> {event.eventLocation}</h3>
-                <br />
-                <h3> {event.eventDate}</h3>
-                <br  />
-                <h2 style={{ fontStyle: 'italic'}}>"{event.eventDetails}"</h2>
-                <br /><br />
+            <div className='dispShell'>
+                <p>Location:<br /><p className='dispWords'>{event.eventLocation}</p></p>
+                <p className='dispP'>Date:<br /><p className='dispWords'>{event.eventDate}</p></p>
+                <p className='dispP2'>Details:<br /><p className='dispWords2'>{event.eventDetails}</p></p>
             </div>
+            <br /><br />
+            </div>
+            <div className='btnBar'>
+                <Link className='btn' to={`/updateEvent/${event._id}`}>Edit</Link>
+                <Link className='btn' to={`/dash`}>Home</Link>
+                <Link className='btn' to={`/events`}>Back</Link>
+            </div>
+            <br />
         </div>
     )
 }
