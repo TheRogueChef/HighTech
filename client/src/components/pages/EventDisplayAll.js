@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import '../pages/style.css';
+import ScrollToTopButton from '../pages/ScrollToTopButton';
 
 function formatDate(dateString) {
     const options = { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' };
@@ -52,6 +53,7 @@ const DisplayAllEvents = (props) => {
                 </div>
             ))}
             </div> 
+            <ScrollToTopButton />
         </div>
     );
 };

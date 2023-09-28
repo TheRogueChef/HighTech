@@ -5,26 +5,26 @@ import '../pages/style.css';
 import ScrollToTopButton from '../pages/ScrollToTopButton';
 
 function formatDate(dateString) {
-    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    const options = { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' };
     return new Date(dateString).toLocaleDateString(undefined, options);
   }
 
 
-const DisplayAllStories = (props) => {
-    const [stories, setStories] = useState([]);
+const DisplayAllDocs = (props) => {
+    const [docs, setDocs] = useState([]);
 
     useEffect(() => {
         axios
-            .get('http://localhost:8000/api/allStories')
+            .get('http://localhost:8000/api/allDocs')
             .then((res) => {
-                const initialStories = res.data.map((story) => {
+                const initialDocs = res.data.map((doc) => {
                     return {
-                        ...story,
-                        storyDate: formatDate(story.storyDate),
+                        ...doc,
+                        docDate: formatDate(doc.docDate),
                     
                     };
                 });
-                setStories(initialStories.reverse());
+                setDocs(initialDocs.reverse());
             })
             .catch((err) => {
                 console.log(err);
@@ -32,22 +32,21 @@ const DisplayAllStories = (props) => {
     }, []);
 
     return (
-        <div className= 'dispAllShell'>
+        <div className= 'evShell'>
             <br />
             <div className='libCenter'>
-            <p className='dispAllTitle'>All Stories</p>
+            <p className='evTitle'>All Docs</p>
             </div>
             <div className='btnBar'>
                 <Link className='bubBtn' to={'/dash'}>Home</Link>
-                <Link className='bubBtn' to={`/newStory`}>New Story</Link>
             </div> 
             <br />
             <div className='evBox'>
-            {stories.map((story, index) => (
-                <div className='dispAllBubble' key={index}>
-                    <p className='DAbubTitle'>{story.storyTitle}</p>
-                    <p className='DAbubLocation'>{story.storyDate}</p>
-                    <Link className='bubBtn' to={`/oneStory/${story._id}`}>Read More...</Link>
+            {docs.map((doc, index) => (
+                <div className='evBubble' key={doc}>
+                    <p className='bubTitle'>{doc.docTitle}</p>
+                    <p className='bubLocation'>{doc.docLocation}</p>
+                    <p className='bubLocation'>{doc.docDate}</p>
                     <br /><br />
                 </div>
             ))}
@@ -57,4 +56,4 @@ const DisplayAllStories = (props) => {
     );
 };
 
-export default DisplayAllStories;
+export default DisplayAllDocs;

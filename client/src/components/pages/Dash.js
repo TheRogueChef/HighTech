@@ -34,7 +34,7 @@ const Dashboard = () => {
                     <br /><br />
                     <RouterLink className='dashItem' to='/stories'>Stories</RouterLink>
                     <br /><br />
-                    <RouterLink className='dashItem' to='/docs'>Docs</RouterLink>
+                    <RouterLink className='dashItem' to='/documents'>Docs</RouterLink>
                     <br /><br />
                     <RouterLink className='dashItem' to='/extra'>Extra</RouterLink>
                     <br /><br /><br />

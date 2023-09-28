@@ -16,6 +16,9 @@ import Reviews from './components/pages/reviews';
 import Stories from './components/pages/StoryDisplayAll';
 import NewStory from './components/pages/NewStory';
 import OneStory from './components/pages/StoryDisplayOne';
+import Docs from "./components/pages/Docs";
+import NewDoc from './components/pages/NewDoc';
+import Documents from "./views/Documents";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 
@@ -40,6 +43,10 @@ function App() {
         <Route path="/stories" element={<Stories />} />
         <Route path="/newStory" element={<NewStory />} />
         <Route path="/oneStory/:id" element={<OneStory />} />
+        <Route path="/docs" element={<Docs />} />
+        <Route path="/documents" element={<Documents />} />
+        <Route path="/newDoc" element={<NewDoc />} />
+
       </Routes>
     </BrowserRouter>
   );
