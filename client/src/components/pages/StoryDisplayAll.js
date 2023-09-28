@@ -31,10 +31,10 @@ const DisplayAllStories = (props) => {
     }, []);
 
     return (
-        <div className= 'evShell'>
+        <div className= 'dispAllShell'>
             <br />
             <div className='libCenter'>
-            <p className='evTitle'>All Stories</p>
+            <p className='dispAllTitle'>All Stories</p>
             </div>
             <div className='btnBar'>
                 <Link className='bubBtn' to={'/dash'}>Home</Link>
@@ -43,10 +43,9 @@ const DisplayAllStories = (props) => {
             <br />
             <div className='evBox'>
             {stories.map((story, index) => (
-                <div className='evBubble' key={index}>
-                    <p className='bubTitle'>{story.storyTitle}</p>
-                    <p className='bubLocation'>{story.storyAuthor}</p>
-                    <p className='bubLocation'>{story.storyDate}</p>
+                <div className='dispAllBubble' key={index}>
+                    <p className='DAbubTitle'>{story.storyTitle}</p>
+                    <p className='DAbubLocation'>{story.storyDate}</p>
                     <Link className='bubBtn' to={`/oneStory/${story._id}`}>Read More...</Link>
                     <br /><br />
                 </div>

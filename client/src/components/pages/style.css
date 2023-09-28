@@ -189,11 +189,11 @@ main {
     text-align: center;
     margin-left: 5%;
     margin-right: 5%;
-    text-shadow: .01rem .01rem ghostwhite;
-    color: darkgreen;
+    text-shadow: .1rem .1rem darkgreen;
+    color: ghostwhite;
     border: .25rem solid ghostwhite;
     border-radius: 2%;
-    background-color: rgba(0, 0, 0, .2);
+    background-color: rgba(0, 0, 0, .3);
     padding: 2%;
 }
 
@@ -235,7 +235,8 @@ main {
     animation: bounceIn 1s ease-in-out;
     text-decoration: none;
     color: darkgreen;
-    border: .02rem solid white;
+    text-shadow: .1rem .1rem ghostwhite;
+    border: .02rem solid ghostwhite;
     background-color: rgba(0, 0, 0, .2);
     padding: 1%;
     border-radius: 50%;
@@ -671,6 +672,7 @@ main {
     color: darkgreen;
     text-align: left;
     margin-left: 30%;
+    text-shadow: .05rem .05rem black;
 }
 
 .InputBox,
@@ -901,7 +903,7 @@ main {
 }
 
 /*eventDisplayOne*/
-.dispDad{
+.dispDad {
     font-family: BestAccurate;
     color: ghostwhite;
     background-image: url(../images/weed.jpg);
@@ -943,14 +945,17 @@ main {
 .dispP {
     margin-top: -2.5%;
 }
+
 .dispP2 {
     margin-top: -1%;
 }
 
-.dispWords, .dispWords2 {
+.dispWords,
+.dispWords2 {
     color: greenyellow;
     margin-top: -1.5%;
 }
+
 .dispWords2 {
     margin-top: -.5%;
 }
@@ -968,4 +973,94 @@ main {
     width: 80%;
     display: flex;
     justify-content: space-between;
+}
+
+/*newStory*/
+.NSEntryBox {
+    height: 60rem;
+    border-radius: 2rem;
+    background-color: rgba(177, 209, 182, 0.7);
+    padding-left: 1%;
+    margin-left: 1%;
+    font-family: BestAccurate;
+    font-size: 1.5rem;
+    width: 90%;
+    white-space: pre-wrap;
+    overflow: auto;
+}
+
+.NSBtn {
+    width: 4rem;
+    height: auto;
+    font-family: BestAccurate;
+    color: greenyellow;
+    border: solid .15rem black;
+    border-radius: 5%;
+    background-color: rgba(0, 0, 0, .7);
+    padding: .5%;
+    text-decoration: none;
+    font-size: 2rem;
+    margin-left: 40%;
+}
+
+/*storyDisplayAll*/
+.dispAllShell {
+    font-family: BestAccurate;
+    text-align: center;
+    background-image: url(../images/potPattern.jpg);
+    background-size: cover;
+    height: 100%;
+    width: auto;
+    color: ghostwhite;
+    padding-bottom: 10%;
+}
+
+.dispAllTitle {
+    width: auto;
+    font-size: 6rem;
+    color: ghostwhite;
+    text-shadow: .15rem .15rem orangered;
+    border: .25rem solid ghostwhite;
+    background-color: rgba(0, 0, 0, .6);
+    border-radius: 5%;
+    padding: 1%;
+}
+
+.dispAllBubble {
+    position: relative;
+    border: .25rem solid orangered;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, .8);
+    width: 20rem;
+    height: 20rem;
+    padding: 1%;
+    margin: 1%;
+    overflow-wrap: break-word;
+    font-size: 1.25rem;
+    text-shadow: .25rem .25rem black;
+    z-index: 1;
+}
+
+.dispAllBubble::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url(../images/JustLeaf.png);
+    background-size: cover;
+    opacity: 0.5;
+    border-radius: inherit;
+    z-index: -1;
+}
+
+.DAbubTitle {
+    font-size: 3.25rem;
+    color: greenyellow;
+}
+
+.DAbubLocation {
+    font-size: 2.25rem;
+    margin-top: -5%;
 }

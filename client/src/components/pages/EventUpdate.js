@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams, useLocation } from "react-router-dom";
 
 const UpdateEvent = (props) => {
     const { id } = useParams();
     const [eventTitle, setEventTitle] = useState();
-    const [eventDate, setEventDate] = useState();
+    const [eventDate, setEventDate] = useState("");
     const [eventLocation, setEventLocation] = useState();
     const [eventDetails, setEventDetails] = useState();
     const navigate = useNavigate();
+    const location = useLocation();
+
+    const previousLocation = location.state?.referrer || "/events";
 
     useEffect(() => {
         axios
@@ -23,12 +26,21 @@ const UpdateEvent = (props) => {
     }, [id]);
 
     const formatDate = (dateString) => {
+        if (!dateString) return '';
         const date = new Date(dateString);
-        const year = date.getFullYear();
-        const month = String(date.getMonth() + 1).padStart(2, "0");
-        const day = String(date.getDate()).padStart(2, "0");
-        return `${year}-${month}-${day}`;
+        if (isNaN(date.getTime())) return dateString;
+        date.setHours(0, 0, 0, 0);
+    
+        const options = {
+            year: 'numeric',
+            month: '2-digit', // Use '2-digit' for zero-padded months
+            day: '2-digit',   // Use '2-digit' for zero-padded days
+            timeZone: 'UTC', // Set the time zone to UTC
+        };
+    
+        return date.toLocaleDateString('en-US', options);
     };
+    
 
     const updateEvent = (e) => {
         e.preventDefault();
@@ -41,7 +53,7 @@ const UpdateEvent = (props) => {
             })
             .then((res) => {
                 console.log(res);
-                navigate("/events");
+                navigate(previousLocation);
             })
             .catch((err) => console.log(err));
     };

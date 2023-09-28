@@ -21,7 +21,7 @@ const StorySchema = new mongoose.Schema({
         type: String,
         required: [true, 'Details required'],
         minLength: [4, 'Details must be at least 4 characters'],
-        maxLength: 5000},
+        maxLength: 3000},
     likes: {
         type: Number,
         default: 0,

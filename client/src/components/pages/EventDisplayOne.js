@@ -4,7 +4,7 @@ import { Link, useParams } from 'react-router-dom';
 import '../pages/style.css';
 
 function formatDate(dateString) {
-    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    const options = { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' };
     return new Date(dateString).toLocaleDateString(undefined, options);
 }
 

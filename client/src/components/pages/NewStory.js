@@ -85,7 +85,7 @@ const StoryForm = (props) => {
                                 null
                         }
                         <br />
-                        <label>Where did it Occur?</label>
+                        <label style={{ color: 'greenyellow'}}>Where did it Happen?</label>
                         <br />
                         <input
                             type="text"
@@ -100,21 +100,21 @@ const StoryForm = (props) => {
                                 null
                         }
                         <br />
-                        <label>Details:</label>
+                        <label>The Story:</label>
                         <br />
                         <textarea
                             type="text"
                             onChange={handleInputChange}
                             value={story.storyDetails}
                             name='storyDetails'
-                            className='EvEntryBox' />
+                            className='NSEntryBox' />
                         {
                             errors.storyDetails ?
                                 <p className='text-danger'>{errors.storyDetails.message}</p> :
                                 null
                         }
                         <br /><br />
-                        <button className='newEvBtn' >Post</button>
+                        <button className='NSBtn' >Post</button>
                     </div>
                 </form>
             </div>
