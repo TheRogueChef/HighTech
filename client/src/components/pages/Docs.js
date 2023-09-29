@@ -7,7 +7,7 @@ import ScrollToTopButton from '../pages/ScrollToTopButton';
 function formatDate(dateString) {
     const options = { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' };
     return new Date(dateString).toLocaleDateString(undefined, options);
-  }
+}
 
 
 const DisplayAllDocs = (props) => {
@@ -21,7 +21,7 @@ const DisplayAllDocs = (props) => {
                     return {
                         ...doc,
                         docDate: formatDate(doc.docDate),
-                    
+
                     };
                 });
                 setDocs(initialDocs.reverse());
@@ -32,26 +32,22 @@ const DisplayAllDocs = (props) => {
     }, []);
 
     return (
-        <div className= 'evShell'>
-            <br />
-            <div className='libCenter'>
-            <p className='evTitle'>All Docs</p>
-            </div>
-            <div className='btnBar'>
-                <Link className='bubBtn' to={'/dash'}>Home</Link>
-            </div> 
-            <br />
+        <div className='newDocShell'>
+
+
+            <br /><br />
             <div className='evBox'>
-            {docs.map((doc, index) => (
-                <div className='evBubble' key={doc}>
-                    <p className='bubTitle'>{doc.docTitle}</p>
-                    <p className='bubLocation'>{doc.docLocation}</p>
-                    <p className='bubLocation'>{doc.docDate}</p>
-                    <br /><br />
-                </div>
-            ))}
-            </div> 
+                {docs.map((doc, index) => (
+                    <div className='allDocs' key={doc}>
+                        <p className='allDocTitle'>{doc.docTitle}</p>
+                        <a className= 'allDocLink' href={doc.docDetails} target="_blank" rel="noopener noreferrer">  
+                            {doc.docDetails}
+                        </a>
+                    </div>
+                ))}
+            </div>
             <ScrollToTopButton />
+
         </div>
     );
 };

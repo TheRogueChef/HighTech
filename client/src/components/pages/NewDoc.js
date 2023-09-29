@@ -21,77 +21,55 @@ const DocForm = (props) => {
     const submitHandler = (e) => {
         e.preventDefault();
         axios.post('http://localhost:8000/api/newDoc', doc)
-            .then((res) => { 
-                setDoc({ ...doc, docTitle: "",docAuthor: '', docDate: '',docLocation: '', docDetails: "" })
-                navigate('/docs')
+            .then((res) => {
+                const newDoc = res.data;
+                setDoc({ ...doc, docTitle: "", docAuthor: '', docDate: '', docLocation: '', docDetails: "" })
+                window.location.reload();
+                props.updateDocList(newDoc);
             })
             .catch((err) => {
                 setErrors(err)
-                
+
             })
     }
 
     return (
-        <div className="newEvShell">
-            <div className='newLeft'></div>
-            <div className='newRight'>
+        <div className="newDocShell">
                 <form onSubmit={submitHandler}>
-                    <p className='newTitle'>New Doc</p>
-                    <div className='btnBar'>
-
-                        <Link className='newBtn' to={`/docs`}>All Docs</Link>
-                        <Link className='newBtn' to={'/dash'}>Home</Link>
-                    </div>
-                    <br /><br />
-                    <div className='formBody'>
-                        <label>Doc Name</label>
-                        <br />
+                    <p className='newDocTitle'>Add A New Doc</p>
+                        <div>
+                        <p className='newDocLabel'>Doc Name</p>
                         <input
                             type="text"
                             onChange={handleInputChange}
                             value={doc.docTitle} name='docTitle'
-                            className='InputBox' />
-                        <br />
+                            className='newDocEntryBox' />
                         {
                             errors.docTitle ?
                                 <p className='text-danger'>{errors.docTitle.message}</p> :
                                 null
                         }
+                        </div>
                         <br />
-                        <label>Doc Date</label>
-                        <br />
+                        <div>
+                        <p className='newDocLabel'>Doc Link</p>
                         <input
-                            type="date"
-                            onChange={handleInputChange}
-                            value={doc.docDate}
-                            name='docDate'
-                            className='InputBox' />
-                        <br />
-                        {
-                            errors.docDate ?
-                                <p className='text-danger'>{errors.docDate.message}</p> :
-                                null
-                        }
-                        
-                        <br />
-                        <label>The Doc Link</label>
-                        <br />
-                        <textarea
-                            type="text"
+                            type="url"
                             onChange={handleInputChange}
                             value={doc.docDetails}
                             name='docDetails'
-                            className='revEntryBox' />
+                            className='newDocEntryBox' />
                         {
                             errors.docDetails ?
                                 <p className='text-danger'>{errors.docDetails.message}</p> :
                                 null
                         }
-                        <br /><br />
-                        <button className='NSBtn' >Post</button>
-                    </div>
+                        </div>
+                    
+                    <br />
+                    <button className='docBtn' >Post</button>
                 </form>
-            </div>
+          
         </div>
     )
 }

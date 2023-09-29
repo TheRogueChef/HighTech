@@ -156,6 +156,7 @@ main {
 .dashShell {
     text-align: center;
     font-family: BestAccurate;
+    border: solid .5rem ghostwhite;
 }
 
 .navBox {
@@ -407,7 +408,7 @@ main {
     height: 100%;
     width: auto;
     text-align: center;
-
+    border: .5rem solid green;
 }
 
 .libCenter {
@@ -567,6 +568,7 @@ main {
     padding-top: 1%;
     padding-bottom: 5%;
     text-align: center;
+    border: solid .5rem ghostwhite;
 }
 
 .viewShell,
@@ -678,7 +680,8 @@ main {
 .InputBox,
 .InputBoxNum,
 .EntryBox,
-.revEntryBox {
+.revEntryBox,
+.newDocEntryBox {
     height: 2rem;
     border-radius: 2rem;
     background-color: rgba(177, 209, 182, 0.7);
@@ -712,6 +715,7 @@ main {
     background-image: url(../images/DarkWeed.jpg);
     background-size: fill;
     color: ghostwhite;
+    border: solid .5rem green;
 }
 
 .revTitleBox {
@@ -803,6 +807,7 @@ main {
     width: auto;
     color: ghostwhite;
     padding-bottom: 10%;
+    border: solid .5rem greenyellow;
 }
 
 .evTitle {
@@ -912,6 +917,7 @@ main {
     padding-top: 1%;
     padding-bottom: 5%;
     text-align: center;
+    border: solid .5rem ghostwhite;
 }
 
 .dispBox {
@@ -1063,4 +1069,122 @@ main {
 .DAbubLocation {
     font-size: 2.25rem;
     margin-top: -5%;
+}
+
+/*documents*/
+.docShell {
+    background-image: url(../images/blueSmoke.jpg);
+    background-size: cover;
+    height: auto;
+    font-family: BestAccurate;
+    color: ghostwhite;
+    padding: 1%;
+    text-align: center;
+    padding-bottom: 5%;
+    border: .5rem solid rgb(9, 9, 235);
+}
+
+.docShellTop {
+    height: 50rem;
+    display: flex;
+    justify-content: space-around;
+    margin-top: -5%;
+
+}
+
+.documentTitle {
+    font-size: 8rem;
+    text-shadow: .3rem .3rem darkblue;
+    margin-top: 28%;
+    margin-bottom: 3%;
+}
+
+.newDocShell {
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: -10%;
+
+}
+
+.newDocTitle {
+    width: auto;
+    font-size: 2rem;
+    color: ghostwhite;
+    text-shadow: .05rem .05rem darkblue;
+    border: .25rem solid ghostwhite;
+    background-color: rgba(0, 0, 0, .6);
+    border-radius: 25%;
+    padding: 1%;
+    text-align: center;
+}
+
+.newDocLabel {
+    text-shadow: .1rem .1rem darkblue;
+    font-size: 1.75rem;
+    margin-bottom: -1%;
+}
+
+.newDocBtnBar {
+    display: flex;
+    justify-content: space-evenly;
+    margin-left: -33%;
+}
+
+.docBtn,
+.docBtn2 {
+    width: auto;
+    color: blue;
+    border: solid .25rem ghostwhite;
+    border-radius: 25%;
+    background-color: rgba(0, 0, 0, .5);
+    text-decoration: none;
+    font-family: BestAccurate;
+    font-size: 1.5rem;
+    text-shadow: .04rem .04rem ghostwhite;
+}
+
+.docBtn {
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.docBtn2 {
+    padding: 1%;
+    margin-top: -15%;
+}
+
+.newDocEntryBox {
+    height: 2rem;
+    background-color: rgba(177, 209, 182, 0.6);
+
+}
+
+.allDocTitle {
+    font-size: 3rem;
+    color: rgb(62, 86, 220);
+    text-shadow: .05rem .05rem ghostwhite;
+}
+
+.allDocLink {
+    text-decoration: none;
+    color: ghostwhite;
+    text-shadow: .05rem .05rem blue;
+
+}
+
+.allDocs {
+    width: 90%;
+    height: 15rem;
+    margin-bottom: 3%;
+    font-size: 2rem;
+    text-shadow: .05rem .05rem darkblue;
+    border: solid ghostwhite .15rem;
+    border-radius: 2%;
+
+    background-image: url(../images/smoke.jpg);
+    background-size: 100%;
+    color: ghostwhite;
 }
