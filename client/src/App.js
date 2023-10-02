@@ -19,6 +19,7 @@ import OneStory from './components/pages/StoryDisplayOne';
 import Docs from "./components/pages/Docs";
 import NewDoc from './components/pages/NewDoc';
 import Documents from "./views/Documents";
+import Extras from './components/pages/extras'
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 
@@ -46,6 +47,7 @@ function App() {
         <Route path="/docs" element={<Docs />} />
         <Route path="/documents" element={<Documents />} />
         <Route path="/newDoc" element={<NewDoc />} />
+        <Route path="/extras" element={<Extras />} />
 
       </Routes>
     </BrowserRouter>

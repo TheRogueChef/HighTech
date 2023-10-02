@@ -5,9 +5,13 @@ import '../pages/style.css';
 import ScrollToTopButton from '../pages/ScrollToTopButton';
 
 function formatDate(dateString) {
-    const options = { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' };
-    return new Date(dateString).toLocaleDateString(undefined, options);
-  }
+    try {
+        return new Date(dateString);
+    } catch (error) {
+        console.error(`Failed to parse date: ${dateString}`);
+        return null;
+    }
+}
 
 
 const DisplayAllEvents = (props) => {
@@ -21,7 +25,7 @@ const DisplayAllEvents = (props) => {
                     return {
                         ...event,
                         eventDate: formatDate(event.eventDate),
-                    
+
                     };
                 });
                 setEvents(initialEvents.reverse());
@@ -32,27 +36,34 @@ const DisplayAllEvents = (props) => {
     }, []);
 
     return (
-        <div className= 'evShell'>
-            <br />
+        <div className='evShell'>
             <div className='libCenter'>
-            <p className='evTitle'>All Events</p>
+                <p className='evTitle'>All Events</p>
             </div>
             <div className='btnBar'>
                 <Link className='bubBtn' to={'/dash'}>Home</Link>
                 <Link className='bubBtn' to={`/newEvent`}>New Event</Link>
-            </div> 
+            </div>
             <br />
             <div className='evBox'>
-            {events.map((event, index) => (
-                <div className='evBubble' key={index}>
-                    <p className='bubTitle'>{event.eventTitle}</p>
-                    <p className='bubLocation'>{event.eventLocation}</p>
-                    <p className='bubLocation'>{event.eventDate}</p>
-                    <Link className='bubBtn' to={`/oneEvent/${event._id}`}>Details</Link>
-                    <br /><br />
-                </div>
-            ))}
-            </div> 
+                {events.map((event, index) => (
+                    <div className='evBubble' key={index}>
+                        <div className='bubDate'>
+                            <p className='bubMonth'>{event.eventDate.toLocaleDateString(undefined, { month: 'long', timeZone: 'UTC' })}</p>
+                            <p className='bubDay'>{event.eventDate.toLocaleDateString(undefined, { day: 'numeric', timeZone: 'UTC' })}</p>
+                        </div>
+                        <div className='bubInfo'>
+                            <p className='bubTitle'>{event.eventTitle}</p>
+                            <p className='bubLocation'>{event.eventLocation}</p>
+                        </div>
+                        <div className='bubBtnBox'>
+                        <Link className='bubBtnDet' to={`/oneEvent/${event._id}`}>Details</Link>
+                        </div>
+                        
+                        <br /><br />
+                    </div>
+                ))}
+            </div>
             <ScrollToTopButton />
         </div>
     );

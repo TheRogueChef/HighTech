@@ -42,7 +42,7 @@ const DisplayAllStories = (props) => {
                 <Link className='bubBtn' to={`/newStory`}>New Story</Link>
             </div> 
             <br />
-            <div className='evBox'>
+            <div className='storyBox'>
             {stories.map((story, index) => (
                 <div className='dispAllBubble' key={index}>
                     <p className='DAbubTitle'>{story.storyTitle}</p>

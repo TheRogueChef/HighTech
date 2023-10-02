@@ -33,10 +33,7 @@ const DisplayAllDocs = (props) => {
 
     return (
         <div className='newDocShell'>
-
-
-            <br /><br />
-            <div className='evBox'>
+            <div className='docBox'>
                 {docs.map((doc, index) => (
                     <div className='allDocs' key={doc}>
                         <p className='allDocTitle'>{doc.docTitle}</p>
@@ -47,7 +44,6 @@ const DisplayAllDocs = (props) => {
                 ))}
             </div>
             <ScrollToTopButton />
-
         </div>
     );
 };
