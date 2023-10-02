@@ -1061,6 +1061,7 @@ main {
     width: auto;
     color: ghostwhite;
     padding-bottom: 10%;
+    border: .5rem solid greenyellow
 }
 
 .dispAllTitle {
